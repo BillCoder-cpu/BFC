@@ -1,0 +1,83 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for Gears
+#
+#  Copyright (C) 2008 by William P. Foster, all rights reserved
+#
+
+PROJECT=Gears
+VER=1
+srcdir=src
+includes=../include
+
+#LIBINSTALL is the Target!
+LIBINSTALL=/lib
+
+#LIBOUT is the intermediate folder
+LIBOUT = /home/bill/Libraries/Unix
+
+DEFS = -D UNIX
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+#LINKEROPTIONS = --export-dynamic
+
+build: create debug
+
+all : create check_headers debug release
+
+rebuild: clean all
+
+backup:
+	header -b .
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/$(PROJECT)_d.so.$(VER)
+	rm -f $(LIBOUT)/$(PROJECT).so.$(VER)
+
+head:
+	header -h ../header src/*.cpp
+	header -h ../header src/*.h
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	header -mp $(srcdir)
+
+debug : $(ALL_DEBUG_OBJ)
+	g++ -shared -Wl,-soname,$(PROJECT)_d.so.$(VER) -o $(LIBOUT)/$(PROJECT)_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/$(PROJECT)_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	g++ -shared -Wl,-soname,$(PROJECT).so.$(VER) -o $(LIBOUT)/$(PROJECT).so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/$(PROJECT).lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/$(PROJECT).so.$(VER) $(LIBINSTALL)/$(PROJECT).so.$(VER)
+	rm -f $(LIBINSTALL)/$(PROJECT).so
+	link $(LIBINSTALL)/$(PROJECT).so.$(VER) $(LIBINSTALL)/$(PROJECT).so
+
+installd: debug
+	cp $(LIBOUT)/$(PROJECT)_d.so.$(VER) $(LIBINSTALL)/$(PROJECT)_d.so.$(VER)
+	rm -f $(LIBINSTALL)/$(PROJECT)_d.so
+	link $(LIBINSTALL)/$(PROJECT)_d.so.$(VER) $(LIBINSTALL)/$(PROJECT)_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/$(PROJECT)_d.so
+	rm -f $(LIBINSTALL)/$(PROJECT)_d.so.$(VER)
+	rm -f $(LIBINSTALL)/$(PROJECT).so
+	rm -f $(LIBINSTALL)/$(PROJECT).so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/$(PROJECT).h > junk
+
+
+

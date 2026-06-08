@@ -1,0 +1,77 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFC
+#
+#  Copyright (C) 2004 by William P. Foster, all rights reserved
+#
+
+VER=1
+srcdir=src
+#LIBINSTALL=/usr/local/lib
+LIBINSTALL=$(HOME)/Libraries/Unix
+LIBOUT = $(HOME)/Libraries/Unix
+includes=../include
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = -I$(srcdir) -I$(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	header -b .
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	header -mp $(srcdir)
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFCVector_d.so.$(VER)
+	rm -f $(LIBOUT)/BFCVector.so.$(VER)
+
+debug : $(ALL_DEBUG_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCVector_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCVector_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCVector.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCVector.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFCVector.so.$(VER) $(LIBINSTALL)/BFCVector.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCVector.so
+	link $(LIBINSTALL)/BFCVector.so.$(VER) $(LIBINSTALL)/BFCVector.so
+
+installd: debug
+	cp $(LIBOUT)/BFCVector_d.so.$(VER) $(LIBINSTALL)/BFCVector_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCVector_d.so
+	link $(LIBINSTALL)/BFCVector_d.so.$(VER) $(LIBINSTALL)/BFCVector_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCVector_d.so
+	rm -f $(LIBINSTALL)/BFCVector_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCVector.so
+	rm -f $(LIBINSTALL)/BFCVector.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCVector.h > junk
+
+
+

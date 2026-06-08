@@ -1,0 +1,312 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFC
+#
+#  Copyright (C) 2004 through 2008 by William P. Foster, all rights reserved
+#
+#
+# Generated via Programmer, a programmer's utility.
+#
+
+ALL_H = BFC.h BFCData.h BFCGUI.h BFCImage.h  \
+		BFCLocal.h BFCOS.h BFCRIP.h BFCScript.h  \
+		BFCUtil.h BFCVector.h Gears.h BFCDefs.h  \
+		BFCDefs_KeyDefs.h BFCTypes.h BFCUnDefs.h Bfc_DebugStatic.h  \
+		CBfc_2dRect.h CBfc_2dShape.h CBfc_2dSize.h CBfc_Angle.h  \
+		CBfc_Array.h CBfc_CompressionAlgorythm.h CBfc_Distance.h CBfc_DynamicLink.h  \
+		CBfc_Exception.h CBfc_File.h CBfc_Filename.h CBfc_LinkedList.h  \
+		CBfc_Map2d.h CBfc_Matrix.h CBfc_Object.h CBfc_PointSpace3d.h  \
+		CBfc_PointSpaceTime.h CBfc_PointTime.h CBfc_Range2d.h CBfc_ReferencedAllocation.h  \
+		CBfc_ReferencedObject.h CBfc_ReferencedPointer.h CBfc_ReferencedValue.h CBfc_Registry.h  \
+		CBfc_Stream.h CBfc_StreamSource.h CBfc_String.h CBfc_Tree.h  \
+		CBfc_Value.h bfc_unix.h bfc_windows.h character.h  \
+		speedfloat.h  
+
+ALL_CPP = ..\src\Bfc_DebugStatic.cpp ..\src\CBfc_2dRect.cpp ..\src\CBfc_2dSize.cpp ..\src\CBfc_Angle.cpp  \
+		..\src\CBfc_Array.cpp ..\src\CBfc_CompressionAlgorythm.cpp ..\src\CBfc_Distance.cpp ..\src\CBfc_DynamicLink.cpp  \
+		..\src\CBfc_Exception.cpp ..\src\CBfc_File.cpp ..\src\CBfc_Filename.cpp ..\src\CBfc_LinkedList.cpp  \
+		..\src\CBfc_MatrixDoubles.cpp ..\src\CBfc_PointSpace3d.cpp ..\src\CBfc_PointSpaceTime.cpp ..\src\CBfc_PointTime.cpp  \
+		..\src\CBfc_Range2d.cpp ..\src\CBfc_ReferencedAllocation.cpp ..\src\CBfc_ReferencedObject.cpp ..\src\CBfc_ReferencedPointer.cpp  \
+		..\src\CBfc_Registry.cpp ..\src\CBfc_Stream.cpp ..\src\CBfc_StreamSource.cpp ..\src\CBfc_String.cpp  \
+		..\src\CBfc_String8.cpp ..\src\CBfc_Value.cpp ..\src\Rect2dU.cpp ..\src\Size2dU.cpp  \
+		..\src\character.cpp  
+
+ALL_OBJ = ..\src\Bfc_DebugStatic.obj ..\src\CBfc_2dRect.obj ..\src\CBfc_2dSize.obj ..\src\CBfc_Angle.obj  \
+		..\src\CBfc_Array.obj ..\src\CBfc_CompressionAlgorythm.obj ..\src\CBfc_Distance.obj ..\src\CBfc_DynamicLink.obj  \
+		..\src\CBfc_Exception.obj ..\src\CBfc_File.obj ..\src\CBfc_Filename.obj ..\src\CBfc_LinkedList.obj  \
+		..\src\CBfc_MatrixDoubles.obj ..\src\CBfc_PointSpace3d.obj ..\src\CBfc_PointSpaceTime.obj ..\src\CBfc_PointTime.obj  \
+		..\src\CBfc_Range2d.obj ..\src\CBfc_ReferencedAllocation.obj ..\src\CBfc_ReferencedObject.obj ..\src\CBfc_ReferencedPointer.obj  \
+		..\src\CBfc_Registry.obj ..\src\CBfc_Stream.obj ..\src\CBfc_StreamSource.obj ..\src\CBfc_String.obj  \
+		..\src\CBfc_String8.obj ..\src\CBfc_Value.obj ..\src\Rect2dU.obj ..\src\Size2dU.obj  \
+		..\src\character.obj  
+
+ALL_DEBUG_OBJ = Debug\Bfc_DebugStatic.obj Debug\CBfc_2dRect.obj Debug\CBfc_2dSize.obj Debug\CBfc_Angle.obj  \
+		Debug\CBfc_Array.obj Debug\CBfc_CompressionAlgorythm.obj Debug\CBfc_Distance.obj Debug\CBfc_DynamicLink.obj  \
+		Debug\CBfc_Exception.obj Debug\CBfc_File.obj Debug\CBfc_Filename.obj Debug\CBfc_LinkedList.obj  \
+		Debug\CBfc_MatrixDoubles.obj Debug\CBfc_PointSpace3d.obj Debug\CBfc_PointSpaceTime.obj Debug\CBfc_PointTime.obj  \
+		Debug\CBfc_Range2d.obj Debug\CBfc_ReferencedAllocation.obj Debug\CBfc_ReferencedObject.obj Debug\CBfc_ReferencedPointer.obj  \
+		Debug\CBfc_Registry.obj Debug\CBfc_Stream.obj Debug\CBfc_StreamSource.obj Debug\CBfc_String.obj  \
+		Debug\CBfc_String8.obj Debug\CBfc_Value.obj Debug\Rect2dU.obj Debug\Size2dU.obj  \
+		Debug\character.obj  
+
+ALL_RELEASE_OBJ = Release\Bfc_DebugStatic.obj Release\CBfc_2dRect.obj Release\CBfc_2dSize.obj Release\CBfc_Angle.obj  \
+		Release\CBfc_Array.obj Release\CBfc_CompressionAlgorythm.obj Release\CBfc_Distance.obj Release\CBfc_DynamicLink.obj  \
+		Release\CBfc_Exception.obj Release\CBfc_File.obj Release\CBfc_Filename.obj Release\CBfc_LinkedList.obj  \
+		Release\CBfc_MatrixDoubles.obj Release\CBfc_PointSpace3d.obj Release\CBfc_PointSpaceTime.obj Release\CBfc_PointTime.obj  \
+		Release\CBfc_Range2d.obj Release\CBfc_ReferencedAllocation.obj Release\CBfc_ReferencedObject.obj Release\CBfc_ReferencedPointer.obj  \
+		Release\CBfc_Registry.obj Release\CBfc_Stream.obj Release\CBfc_StreamSource.obj Release\CBfc_String.obj  \
+		Release\CBfc_String8.obj Release\CBfc_Value.obj Release\Rect2dU.obj Release\Size2dU.obj  \
+		Release\character.obj  
+
+VER=1
+srcdir=..\src
+includes=..\include
+
+#LIBINSTALL is the Target!
+LIBINSTALL=\lib
+
+#LIBOUT is the intermediate folder
+LIBOUT = \Users\Bill\Libraries
+
+DEFS = -D WIN32
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+CPPFLAGS = -I$(srcdir) -I$(includes) -I.. $(DEFS) -D STATICLIB
+# -D BFC_DLL
+
+LINKER = lib
+LINKEROPTIONS = 
+#LINKEROPTIONS = --export-dynamic
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	programmer -b ..
+
+rebuild: clean all
+
+clean :
+	del Debug\*.obj
+	del Release\*.obj
+	del $(LIBOUT)\BFC_d.so.$(VER)
+	del $(LIBOUT)\BFC.so.$(VER)
+
+head:
+	programmer -h ..\header ..\src\*.cpp
+	programmer -h ..\header ..\src\*.h
+
+create:
+	mkdir Debug
+	mkdir Release
+	programmer -mp $(srcdir)
+
+debug : $(LIBOUT)\BFC_d.lib
+	rem g++ -shared -Wl,-soname,BFC_d.so.$(VER) /Fo$(LIBOUT)\BFC_d.so.$(VER) $(ALL_DEBUG_OBJ)
+
+$(LIBOUT)\BFC_d.lib : $(ALL_DEBUG_OBJ) 
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFC_d.lib /DEBUG msvcrtd.lib $(ALL_DEBUG_OBJ)
+
+release : $(LIBOUT)\BFC.lib
+	rem g++ -shared -Wl,-soname,BFC.so.$(VER) /Fo$(LIBOUT)\BFC.so.$(VER) $(ALL_RELEASE_OBJ)
+
+$(LIBOUT)\BFC.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFC.lib /RELEASE msvcrt.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)\BFC.so.$(VER) $(LIBINSTALL)\BFC.so.$(VER)
+	rm -f $(LIBINSTALL)\BFC.so
+	link $(LIBINSTALL)\BFC.so.$(VER) $(LIBINSTALL)\BFC.so
+
+installd: debug
+	cp $(LIBOUT)\BFC_d.so.$(VER) $(LIBINSTALL)\BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)\BFC_d.so
+	link $(LIBINSTALL)\BFC_d.so.$(VER) $(LIBINSTALL)\BFC_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)\BFC_d.so
+	rm -f $(LIBINSTALL)\BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)\BFC.so
+	rm -f $(LIBINSTALL)\BFC.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ..\include\BFC.h > junk
+
+
+
+Debug\Bfc_DebugStatic.obj : ..\src\Bfc_DebugStatic.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\Bfc_DebugStatic.obj ..\src\Bfc_DebugStatic.cpp
+
+Release\Bfc_DebugStatic.obj : ..\src\Bfc_DebugStatic.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\Bfc_DebugStatic.obj ..\src\Bfc_DebugStatic.cpp
+
+Debug\CBfc_2dRect.obj : ..\src\CBfc_2dRect.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_2dRect.obj ..\src\CBfc_2dRect.cpp
+
+Release\CBfc_2dRect.obj : ..\src\CBfc_2dRect.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_2dRect.obj ..\src\CBfc_2dRect.cpp
+
+Debug\CBfc_2dSize.obj : ..\src\CBfc_2dSize.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_2dSize.obj ..\src\CBfc_2dSize.cpp
+
+Release\CBfc_2dSize.obj : ..\src\CBfc_2dSize.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_2dSize.obj ..\src\CBfc_2dSize.cpp
+
+Debug\CBfc_Angle.obj : ..\src\CBfc_Angle.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Angle.obj ..\src\CBfc_Angle.cpp
+
+Release\CBfc_Angle.obj : ..\src\CBfc_Angle.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Angle.obj ..\src\CBfc_Angle.cpp
+
+Debug\CBfc_Array.obj : ..\src\CBfc_Array.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Array.obj ..\src\CBfc_Array.cpp
+
+Release\CBfc_Array.obj : ..\src\CBfc_Array.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Array.obj ..\src\CBfc_Array.cpp
+
+Debug\CBfc_CompressionAlgorythm.obj : ..\src\CBfc_CompressionAlgorythm.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_CompressionAlgorythm.obj ..\src\CBfc_CompressionAlgorythm.cpp
+
+Release\CBfc_CompressionAlgorythm.obj : ..\src\CBfc_CompressionAlgorythm.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_CompressionAlgorythm.obj ..\src\CBfc_CompressionAlgorythm.cpp
+
+Debug\CBfc_Distance.obj : ..\src\CBfc_Distance.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Distance.obj ..\src\CBfc_Distance.cpp
+
+Release\CBfc_Distance.obj : ..\src\CBfc_Distance.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Distance.obj ..\src\CBfc_Distance.cpp
+
+Debug\CBfc_DynamicLink.obj : ..\src\CBfc_DynamicLink.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_DynamicLink.obj ..\src\CBfc_DynamicLink.cpp
+
+Release\CBfc_DynamicLink.obj : ..\src\CBfc_DynamicLink.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_DynamicLink.obj ..\src\CBfc_DynamicLink.cpp
+
+Debug\CBfc_Exception.obj : ..\src\CBfc_Exception.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Exception.obj ..\src\CBfc_Exception.cpp
+
+Release\CBfc_Exception.obj : ..\src\CBfc_Exception.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Exception.obj ..\src\CBfc_Exception.cpp
+
+Debug\CBfc_File.obj : ..\src\CBfc_File.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_File.obj ..\src\CBfc_File.cpp
+
+Release\CBfc_File.obj : ..\src\CBfc_File.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_File.obj ..\src\CBfc_File.cpp
+
+Debug\CBfc_Filename.obj : ..\src\CBfc_Filename.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Filename.obj ..\src\CBfc_Filename.cpp
+
+Release\CBfc_Filename.obj : ..\src\CBfc_Filename.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Filename.obj ..\src\CBfc_Filename.cpp
+
+Debug\CBfc_LinkedList.obj : ..\src\CBfc_LinkedList.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_LinkedList.obj ..\src\CBfc_LinkedList.cpp
+
+Release\CBfc_LinkedList.obj : ..\src\CBfc_LinkedList.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_LinkedList.obj ..\src\CBfc_LinkedList.cpp
+
+Debug\CBfc_MatrixDoubles.obj : ..\src\CBfc_MatrixDoubles.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_MatrixDoubles.obj ..\src\CBfc_MatrixDoubles.cpp
+
+Release\CBfc_MatrixDoubles.obj : ..\src\CBfc_MatrixDoubles.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_MatrixDoubles.obj ..\src\CBfc_MatrixDoubles.cpp
+
+Debug\CBfc_PointSpace3d.obj : ..\src\CBfc_PointSpace3d.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_PointSpace3d.obj ..\src\CBfc_PointSpace3d.cpp
+
+Release\CBfc_PointSpace3d.obj : ..\src\CBfc_PointSpace3d.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_PointSpace3d.obj ..\src\CBfc_PointSpace3d.cpp
+
+Debug\CBfc_PointSpaceTime.obj : ..\src\CBfc_PointSpaceTime.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_PointSpaceTime.obj ..\src\CBfc_PointSpaceTime.cpp
+
+Release\CBfc_PointSpaceTime.obj : ..\src\CBfc_PointSpaceTime.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_PointSpaceTime.obj ..\src\CBfc_PointSpaceTime.cpp
+
+Debug\CBfc_PointTime.obj : ..\src\CBfc_PointTime.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_PointTime.obj ..\src\CBfc_PointTime.cpp
+
+Release\CBfc_PointTime.obj : ..\src\CBfc_PointTime.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_PointTime.obj ..\src\CBfc_PointTime.cpp
+
+Debug\CBfc_Range2d.obj : ..\src\CBfc_Range2d.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Range2d.obj ..\src\CBfc_Range2d.cpp
+
+Release\CBfc_Range2d.obj : ..\src\CBfc_Range2d.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Range2d.obj ..\src\CBfc_Range2d.cpp
+
+Debug\CBfc_ReferencedAllocation.obj : ..\src\CBfc_ReferencedAllocation.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_ReferencedAllocation.obj ..\src\CBfc_ReferencedAllocation.cpp
+
+Release\CBfc_ReferencedAllocation.obj : ..\src\CBfc_ReferencedAllocation.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_ReferencedAllocation.obj ..\src\CBfc_ReferencedAllocation.cpp
+
+Debug\CBfc_ReferencedObject.obj : ..\src\CBfc_ReferencedObject.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_ReferencedObject.obj ..\src\CBfc_ReferencedObject.cpp
+
+Release\CBfc_ReferencedObject.obj : ..\src\CBfc_ReferencedObject.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_ReferencedObject.obj ..\src\CBfc_ReferencedObject.cpp
+
+Debug\CBfc_ReferencedPointer.obj : ..\src\CBfc_ReferencedPointer.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_ReferencedPointer.obj ..\src\CBfc_ReferencedPointer.cpp
+
+Release\CBfc_ReferencedPointer.obj : ..\src\CBfc_ReferencedPointer.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_ReferencedPointer.obj ..\src\CBfc_ReferencedPointer.cpp
+
+Debug\CBfc_Registry.obj : ..\src\CBfc_Registry.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Registry.obj ..\src\CBfc_Registry.cpp
+
+Release\CBfc_Registry.obj : ..\src\CBfc_Registry.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Registry.obj ..\src\CBfc_Registry.cpp
+
+Debug\CBfc_Stream.obj : ..\src\CBfc_Stream.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Stream.obj ..\src\CBfc_Stream.cpp
+
+Release\CBfc_Stream.obj : ..\src\CBfc_Stream.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Stream.obj ..\src\CBfc_Stream.cpp
+
+Debug\CBfc_StreamSource.obj : ..\src\CBfc_StreamSource.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_StreamSource.obj ..\src\CBfc_StreamSource.cpp
+
+Release\CBfc_StreamSource.obj : ..\src\CBfc_StreamSource.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_StreamSource.obj ..\src\CBfc_StreamSource.cpp
+
+Debug\CBfc_String.obj : ..\src\CBfc_String.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_String.obj ..\src\CBfc_String.cpp
+
+Release\CBfc_String.obj : ..\src\CBfc_String.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_String.obj ..\src\CBfc_String.cpp
+
+Debug\CBfc_String8.obj : ..\src\CBfc_String8.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_String8.obj ..\src\CBfc_String8.cpp
+
+Release\CBfc_String8.obj : ..\src\CBfc_String8.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_String8.obj ..\src\CBfc_String8.cpp
+
+Debug\CBfc_Value.obj : ..\src\CBfc_Value.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\CBfc_Value.obj ..\src\CBfc_Value.cpp
+
+Release\CBfc_Value.obj : ..\src\CBfc_Value.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\CBfc_Value.obj ..\src\CBfc_Value.cpp
+
+Debug\Rect2dU.obj : ..\src\Rect2dU.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\Rect2dU.obj ..\src\Rect2dU.cpp
+
+Release\Rect2dU.obj : ..\src\Rect2dU.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\Rect2dU.obj ..\src\Rect2dU.cpp
+
+Debug\Size2dU.obj : ..\src\Size2dU.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\Size2dU.obj ..\src\Size2dU.cpp
+
+Release\Size2dU.obj : ..\src\Size2dU.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\Size2dU.obj ..\src\Size2dU.cpp
+
+Debug\character.obj : ..\src\character.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /FoDebug\character.obj ..\src\character.cpp
+
+Release\character.obj : ..\src\character.cpp 
+		$(CCPP) -c $(CPPFLAGS) /FoRelease\character.obj ..\src\character.cpp

@@ -1,0 +1,88 @@
+#
+# WINDOWS Makefile
+#
+#  This is the MinGW Makefile for BFC
+#
+#  Copyright (C) 2012 by William P. Foster, all rights reserved
+#
+
+SHELL=C:\Windows\System32\CMD.exe
+VER=1
+srcdir=../src
+includes=../../include
+
+LIBOUT=.
+LIBINSTALL=\Users\Bill\Libraries
+
+DEFS = -DWIN32 -DMINGW -DBFC_STATICLIB
+# -DBFC_DLL
+
+CCPP = gcc
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
+CPPDEBUG = -g -O0 -D_DEBUG 
+
+LINKER = ar
+LINKEROPTIONS = rcs
+
+DLL_LINKER = g++ -shared
+DLL_LINKEROPTIONS = -o
+#LINKEROPTIONS = --export-dynamic
+
+DEBUG_NAME=BFC_mingw_d.a
+RELEASE_NAME=BFC_mingw.a
+
+DEBUG_NAME_DLL=BFC_mingw_d.dll
+RELEASE_NAME_DLL=BFC_mingw.dll
+
+build: create debug
+
+all : create debug release
+
+backup:
+	programmer -b .
+
+rebuild: clean all
+
+clean :
+	programmer -c
+	del $(LIBOUT)\$(DEBUG_NAME)
+	del $(LIBOUT)\$(RELEASE_NAME)
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+create:
+	programmer -mpg $(srcdir)
+
+debug : $(LIBOUT)/$(DEBUG_NAME) $(LIBOUT)/$(DEBUG_NAME_DLL)
+
+$(LIBOUT)/$(DEBUG_NAME) : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME) $(ALL_DEBUG_OBJ)
+
+$(LIBOUT)/$(DEBUG_NAME_DLL) : $(ALL_DEBUG_OBJ)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME_DLL) $(ALL_DEBUG_OBJ)
+	
+release : $(LIBOUT)/$(RELEASE_NAME) $(LIBOUT)/$(RELEASE_NAME_DLL)
+
+$(LIBOUT)/$(RELEASE_NAME) : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME) $(ALL_RELEASE_OBJ)
+
+$(LIBOUT)/$(RELEASE_NAME_DLL) : $(ALL_RELEASE_OBJ)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME_DLL) $(ALL_RELEASE_OBJ)
+	
+install: installd release
+	copy $(LIBOUT)\$(RELEASE_NAME) $(LIBINSTALL)\$(RELEASE_NAME)
+	copy $(LIBOUT)\$(RELEASE_NAME_DLL) $(LIBINSTALL)\$(RELEASE_NAME_DLL)
+
+installd: debug
+	copy $(LIBOUT)\$(DEBUG_NAME) $(LIBINSTALL)\$(DEBUG_NAME)
+	copy $(LIBOUT)\$(DEBUG_NAME_DLL) $(LIBINSTALL)\$(DEBUG_NAME_DLL)
+
+uninstall:
+	del $(LIBINSTALL)/$(DEBUG_NAME)
+	del $(LIBINSTALL)/$(RELEASE_NAME)
+
+
+

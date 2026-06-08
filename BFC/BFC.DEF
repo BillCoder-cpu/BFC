@@ -1,0 +1,7 @@
+LIBRARY      "BFC"
+
+EXPORTS
+;    ===List your explicitly exported functions here===
+	BfcRelease_Trace
+	BfcDebugStatic_Trace
+	

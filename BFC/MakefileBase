@@ -1,0 +1,96 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFC
+#
+#  Copyright (C) 2004 through 2008 by William P. Foster, all rights reserved
+#
+
+VER=1
+srcdir=src
+includes=../include
+
+#LIBINSTALL is the Target!
+LIBINSTALL=/lib
+
+#LIBOUT is the intermediate folder
+LIBOUT = $(HOME)/Libraries/Unix
+
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = -I$(srcdir) -I$(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+#LINKEROPTIONS = --export-dynamic
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	programmer -b .
+
+rebuild: clean all
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFC_d.so.$(VER)
+	rm -f $(LIBOUT)/BFC.so.$(VER)
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	programmer -mp $(srcdir)
+
+windebug : $(ALL_DEBUG_OBJ)
+	g++ -shared -Wl,-soname,BFC_d.so.$(VER) -o $(LIBOUT)/BFC_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFC_d.lib $(ALL_DEBUG_OBJ)
+
+winrelease : $(ALL_RELEASE_OBJ)
+	g++ -shared -Wl,-soname,BFC.so.$(VER) -o $(LIBOUT)/BFC.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFC.lib $(ALL_RELEASE_OBJ)
+
+debug : $(ALL_DEBUG_OBJ)
+	g++ -shared -Wl,-soname,BFC_d.so.$(VER) -o $(LIBOUT)/BFC_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFC_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	g++ -shared -Wl,-soname,BFC.so.$(VER) -o $(LIBOUT)/BFC.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFC.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFC.so.$(VER) $(LIBINSTALL)/BFC.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC.so
+	link $(LIBINSTALL)/BFC.so.$(VER) $(LIBINSTALL)/BFC.so
+
+installd: debug
+	cp $(LIBOUT)/BFC_d.so.$(VER) $(LIBINSTALL)/BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC_d.so
+	link $(LIBINSTALL)/BFC_d.so.$(VER) $(LIBINSTALL)/BFC_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFC_d.so
+	rm -f $(LIBINSTALL)/BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC.so
+	rm -f $(LIBINSTALL)/BFC.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFC.h > junk
+
+
+

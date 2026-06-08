@@ -1,0 +1,92 @@
+#
+# Posix Makefile
+#
+#  This is the gcc Makefile for BFCScript
+#
+#  Copyright (C) 2005 by William P. Foster, all rights reserved
+#
+
+VER=1
+srcdir=src
+LIBINSTALL=/lib
+LIBOUT = $(HOME)/Libraries/Unix
+includes=../include
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+CPPFLAGS = -I$(srcdir) -I$(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+# ifeq ($(CC),gcc)
+#   libs=$(libs_for_gcc)
+# else
+#   libs=$(normal_libs)
+# endif
+
+Debug/%.o $(srcdir)/%.cpp:
+	$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) $< -o $@
+
+Release/%.o $(srcdir)/%.cpp:
+	$(CCPP) -c $(CPPFLAGS) $< -o $@
+
+all : create check_headers debug release
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	programmer -mp $(srcdir)
+
+backup:
+	programmer -b .
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFCScript_d.so.$(VER)
+	rm -f $(LIBOUT)/BFCScript.so.$(VER)
+
+gen_cs:
+	skipper -i "$(includes);$(srcdir)" -d cs -s $(srcdir) *.cpp
+
+head:
+	header -h ../header $(srcdir)/*.cpp
+	header -h ../header $(srcdir)/*.h
+
+debug : $(ALL_DEBUG_OBJ)
+	g++ -shared -Wl,-soname,BFCScript_d.so.$(VER) -o $(LIBOUT)/BFCScript_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCScript_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	g++ -shared -Wl,-soname,BFCScript.so.$(VER) -o $(LIBOUT)/BFCScript.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCScript.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFCScript.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCScript.so
+	link $(LIBINSTALL)/BFCScript.so.$(VER) $(LIBINSTALL)/BFCScript.so
+
+installd: debug
+	cp $(LIBOUT)/BFCScript_d.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCScript_d.so
+	link $(LIBINSTALL)/BFCScript_d.so.$(VER) $(LIBINSTALL)/BFCScript_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCScript.so
+	rm -f $(LIBINSTALL)/BFCScript.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCScript_d.so
+	rm -f $(LIBINSTALL)/BFCScript_d.so.$(VER)
+
+# check_headers : $(ALL_H)
+#	$(CCPP) -E $(CPPFLAGS) $(includes)/BFCScript.h > junk
+
+
+

@@ -1,0 +1,18 @@
+
+BFC Todo:
+	format as currency
+	
+
+GUI Todo:
+
+  
+I think I should write my own of these just using FXButton, or FxLabel, and customizing.
+This is total bullshit with a uniquely derived class for every fucking nitpick type of widget
+
+   Droplist				FXComboBox
+  radio buttons			(FXRadioButton)
+  check box buttons		FXCheckButton
+
+
+
+

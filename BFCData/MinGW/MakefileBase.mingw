@@ -1,0 +1,84 @@
+#
+# Windows Makefile
+#
+#  This is the MinGW gcc Makefile for BFCData
+#
+#  Copyright (C) 2004, 2012 by William P. Foster, all rights reserved
+#
+
+VER=1
+srcdir=../src
+includes=../../include
+
+LIBOUT=.\lib
+LIBINSTALL=\Users\Bill\Libraries
+DEFS = -DWIN32 -DMINGW -DSTATICLIB
+# -DBFC_DLL 
+
+CCPP = gcc
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
+CPPDEBUG = -g -D_DEBUG 
+
+LINKER = ar
+LINKEROPTIONS = rcs
+
+DEBUG_NAME=BFCData_mingw_d.a
+RELEASE_NAME=BFCData_mingw.a
+
+# For Making DLL's:
+DLL_LINKER = g++ -shared
+DLL_LINKEROPTIONS = -o
+
+DLL_DEBUG_NAME=BFCData_mingw_d.dll
+DLL_RELEASE_NAME=BFCData_mingw.dll
+
+DEBUG_DLLS=$(LIBINSTALL)\BFC_mingw_d.dll
+RELEASE_DLLS=$(LIBINSTALL)\BFC_mingw.dll
+
+
+build: create debug
+
+all : create debug release
+
+rebuild: clean all
+
+backup:
+	header -b .
+
+create:
+	programmer -mpg $(srcdir)
+
+clean :
+	programmer -c
+	del $(LIBOUT)\$(DEBUG_NAME)
+	del $(LIBOUT)\$(RELEASE_NAME)
+
+debug : $(LIBOUT)/$(DEBUG_NAME) $(LIBOUT)/$(DLL_DEBUG_NAME)
+
+$(LIBOUT)/$(DEBUG_NAME) : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME) $(ALL_DEBUG_OBJ)
+
+$(LIBOUT)/$(DLL_DEBUG_NAME) : $(ALL_DEBUG_OBJ) $(DEBUG_DLLS)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(DLL_DEBUG_NAME) $(ALL_DEBUG_OBJ) $(DEBUG_DLLS)
+	
+release : $(LIBOUT)/$(RELEASE_NAME) $(LIBOUT)/$(DLL_RELEASE_NAME)
+
+$(LIBOUT)/$(RELEASE_NAME) : $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME) $(ALL_RELEASE_OBJ)
+
+$(LIBOUT)/$(DLL_RELEASE_NAME) : $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(DLL_RELEASE_NAME) $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+
+install: installd release
+	copy $(LIBOUT)\$(RELEASE_NAME) $(LIBINSTALL)\$(RELEASE_NAME)
+	copy $(LIBOUT)\$(DLL_RELEASE_NAME) $(LIBINSTALL)\$(DLL_RELEASE_NAME)
+
+installd: debug
+	copy $(LIBOUT)\$(DEBUG_NAME) $(LIBINSTALL)\$(DEBUG_NAME)
+	copy $(LIBOUT)\$(DLL_DEBUG_NAME) $(LIBINSTALL)\$(DLL_DEBUG_NAME)
+
+uninstall:
+	del $(LIBINSTALL)/$(DEBUG_NAME)
+	del $(LIBINSTALL)/$(RELEASE_NAME)
+

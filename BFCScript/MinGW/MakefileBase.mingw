@@ -1,0 +1,96 @@
+#
+# WINDOWS Makefile
+#
+#  This is the MinGW Makefile for BFCScript
+#
+#  Copyright (C) 2004 through 2008, 2012 by William P. Foster, all rights reserved
+#
+
+SHELL=C:\Windows\System32\CMD.exe
+
+VER=1
+srcdir=../src
+includes=../../include
+
+LIBOUT=.\lib
+LIBINSTALL=\Users\Bill\Libraries
+
+DEFS = -DWIN32 -DMINGW -DBFC_STATICLIB
+#  -DBFC_DLL
+
+CCPP = gcc
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
+CPPDEBUG = -g -D_DEBUG 
+
+LINKER = ar
+LINKEROPTIONS = rcs
+
+DLL_LINKER = g++ -shared
+DLL_LINKEROPTIONS = -o
+#LINKEROPTIONS = --export-dynamic
+
+DEBUG_DLLS=$(LIBINSTALL)\BFC_mingw_d.dll $(LIBINSTALL)\BFCData_mingw_d.dll
+RELEASE_DLLS=$(LIBINSTALL)\BFC_mingw.dll $(LIBINSTALL)\BFCData_mingw.dll
+
+DEBUG_NAME=BFCScript_mingw_d.a
+RELEASE_NAME=BFCScript_mingw.a
+
+DEBUG_NAME_DLL=BFCScript_mingw_d.dll
+RELEASE_NAME_DLL=BFCScript_mingw.dll
+
+build: create debug
+
+all : create debug release
+
+backup:
+	programmer -b .
+
+rebuild: clean all
+
+clean :
+	programmer -c
+	del $(LIBOUT)\$(DEBUG_NAME)
+	del $(LIBOUT)\$(RELEASE_NAME)
+	del $(LIBOUT)\$(DEBUG_NAME_DLL)
+	del $(LIBOUT)\$(RELEASE_NAME_DLL)
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+create:
+	programmer -mpg $(srcdir)
+
+debug : $(LIBOUT)/$(DEBUG_NAME) $(LIBOUT)/$(DEBUG_NAME_DLL)
+
+$(LIBOUT)/$(DEBUG_NAME) : $(ALL_DEBUG_OBJ) $(DEBUG_DLLS)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME) $(ALL_DEBUG_OBJ)
+
+$(LIBOUT)/$(DEBUG_NAME_DLL) : $(ALL_DEBUG_OBJ) $(DEBUG_DLLS)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME_DLL) $(ALL_DEBUG_OBJ) $(DEBUG_DLLS)
+	
+release : $(LIBOUT)/$(RELEASE_NAME) $(LIBOUT)/$(RELEASE_NAME_DLL)
+
+$(LIBOUT)/$(RELEASE_NAME) : $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME) $(ALL_RELEASE_OBJ)
+
+$(LIBOUT)/$(RELEASE_NAME_DLL) : $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME_DLL) $(ALL_RELEASE_OBJ) $(RELEASE_DLLS)
+	
+install: installd release
+	copy $(LIBOUT)\$(RELEASE_NAME) $(LIBINSTALL)\$(RELEASE_NAME)
+	copy $(LIBOUT)\$(RELEASE_NAME_DLL) $(LIBINSTALL)\$(RELEASE_NAME_DLL)
+
+installd: debug
+	copy $(LIBOUT)\$(DEBUG_NAME) $(LIBINSTALL)\$(DEBUG_NAME)
+	copy $(LIBOUT)\$(DEBUG_NAME_DLL) $(LIBINSTALL)\$(DEBUG_NAME_DLL)
+
+uninstall:
+	del $(LIBINSTALL)/$(DEBUG_NAME)
+	del $(LIBINSTALL)/$(RELEASE_NAME)
+
+
+
+
+

@@ -1,0 +1,76 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCGui", "BFCGUI\BFCGui.vcproj", "{031CD7C2-6155-4826-8E0E-2FE237769946}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFC", "BFC\BFC.vcproj", "{53A39301-4E05-46FF-A1E7-A371A6267594}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCScript", "BFCScript\BFCScript.vcproj", "{C43714D8-DE97-4907-973A-50DD0E60263D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCOS", "BFCOS\BFCOS.vcproj", "{9D7736A6-8888-483F-9284-710C1DB7CD06}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCData", "BFCData\BFCData.vcproj", "{2B79101E-F001-4828-A9A2-FFE69C2797B7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCImage", "BFCImage\Win32_Project\BFCImage.vcproj", "{2EB35F42-D5FE-46AC-97A2-C94516873A0F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCLocal", "BFCLocal\BFCLocal.vcproj", "{5F3A16C2-624A-4C66-A4D7-37D3F5BDED77}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCRIP", "BFCRip\BFCRIP.vcproj", "{09632389-82CB-4BA4-B51D-E36B0C15D82C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCUtil", "BFCUtil\BFCUtil.vcproj", "{93E1B109-1E07-47FF-A551-8EFB735E51D8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFCVector", "BFCVector\BFCVector.vcproj", "{3696882B-2FD0-4FEF-965F-E6760D26ADDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C097E95E-798E-4D8C-B74E-35483DFCF351}"
+	ProjectSection(SolutionItems) = preProject
+		include\BFC.h = include\BFC.h
+		include\BFCData.h = include\BFCData.h
+		include\BFCGui.h = include\BFCGui.h
+		include\BFCImage.h = include\BFCImage.h
+		include\BfcLocal.h = include\BfcLocal.h
+		include\BFCOS.h = include\BFCOS.h
+		include\BFCRip.h = include\BFCRip.h
+		include\BFCScript.h = include\BFCScript.h
+		include\BFCUtil.h = include\BFCUtil.h
+		include\BFCVector.h = include\BFCVector.h
+		include\source_header = include\source_header
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{031CD7C2-6155-4826-8E0E-2FE237769946}.Debug|Default.ActiveCfg = Debug|Win32
+		{031CD7C2-6155-4826-8E0E-2FE237769946}.Debug|Default.Build.0 = Debug|Win32
+		{031CD7C2-6155-4826-8E0E-2FE237769946}.Release|Default.ActiveCfg = Release|Win32
+		{031CD7C2-6155-4826-8E0E-2FE237769946}.Release|Default.Build.0 = Release|Win32
+		{53A39301-4E05-46FF-A1E7-A371A6267594}.Debug|Default.ActiveCfg = Debug|Win32
+		{53A39301-4E05-46FF-A1E7-A371A6267594}.Debug|Default.Build.0 = Debug|Win32
+		{53A39301-4E05-46FF-A1E7-A371A6267594}.Release|Default.ActiveCfg = Release|Win32
+		{53A39301-4E05-46FF-A1E7-A371A6267594}.Release|Default.Build.0 = Release|Win32
+		{9D7736A6-8888-483F-9284-710C1DB7CD06}.Debug|Default.ActiveCfg = Debug|Win32
+		{9D7736A6-8888-483F-9284-710C1DB7CD06}.Debug|Default.Build.0 = Debug|Win32
+		{9D7736A6-8888-483F-9284-710C1DB7CD06}.Release|Default.ActiveCfg = Release|Win32
+		{9D7736A6-8888-483F-9284-710C1DB7CD06}.Release|Default.Build.0 = Release|Win32
+		{2EB35F42-D5FE-46AC-97A2-C94516873A0F}.Debug|Default.ActiveCfg = Debug|Win32
+		{2EB35F42-D5FE-46AC-97A2-C94516873A0F}.Debug|Default.Build.0 = Debug|Win32
+		{2EB35F42-D5FE-46AC-97A2-C94516873A0F}.Release|Default.ActiveCfg = Release|Win32
+		{2EB35F42-D5FE-46AC-97A2-C94516873A0F}.Release|Default.Build.0 = Release|Win32
+		{5F3A16C2-624A-4C66-A4D7-37D3F5BDED77}.Debug|Default.ActiveCfg = Debug|Win32
+		{5F3A16C2-624A-4C66-A4D7-37D3F5BDED77}.Debug|Default.Build.0 = Debug|Win32
+		{5F3A16C2-624A-4C66-A4D7-37D3F5BDED77}.Release|Default.ActiveCfg = Release|Win32
+		{5F3A16C2-624A-4C66-A4D7-37D3F5BDED77}.Release|Default.Build.0 = Release|Win32
+		{09632389-82CB-4BA4-B51D-E36B0C15D82C}.Debug|Default.ActiveCfg = Debug|Win32
+		{09632389-82CB-4BA4-B51D-E36B0C15D82C}.Debug|Default.Build.0 = Debug|Win32
+		{09632389-82CB-4BA4-B51D-E36B0C15D82C}.Release|Default.ActiveCfg = Release|Win32
+		{09632389-82CB-4BA4-B51D-E36B0C15D82C}.Release|Default.Build.0 = Release|Win32
+		{93E1B109-1E07-47FF-A551-8EFB735E51D8}.Debug|Default.ActiveCfg = Debug|Win32
+		{93E1B109-1E07-47FF-A551-8EFB735E51D8}.Debug|Default.Build.0 = Debug|Win32
+		{93E1B109-1E07-47FF-A551-8EFB735E51D8}.Release|Default.ActiveCfg = Release|Win32
+		{93E1B109-1E07-47FF-A551-8EFB735E51D8}.Release|Default.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

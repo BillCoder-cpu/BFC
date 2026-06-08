@@ -1,0 +1,86 @@
+#
+# WINDOWS Makefile
+#
+#  This is the Windows Makefile for BFCGUI
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2011-2026 William P. Foster
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+SRCBASE=\Sources
+LIBINSTALL = \Libraries
+
+SHELL=C:/Windows/System32/cmd.exe
+VER=1
+srcdir=..\src
+LIBOUT=.
+
+VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
+BFCINC=$(SRCBASE)\C++\Engines\BFC\include
+BFCDIR=$(SRCBASE)\C++\Engines\BFC
+FOXDIR=$(SRCBASE)\C++\Third-Party\fox-current
+CSDIR=$(SRCBASE)\cs
+
+includes=-I$(srcdir) -I..\..\include -I$(FOXDIR)\include
+DEFS = -D WIN32 -D BFC_STATICLIB
+LIBS = $(LIBOUT)\BFCGUI.lib
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+#INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) $(includes) $(DEFS)
+
+LINKER = lib
+#LINKEROPTIONS = -r
+
+all: create debug release
+
+backup:
+	programmer -b .
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpw $(srcdir)
+
+clean:
+	programmer -c
+	del $(LIBOUT)\BFCGUI.lib
+	del $(LIBOUT)\BFCGUI_d.lib
+
+convert:
+	   skipper -i $(BFCINC);$(VCINC) $(DEFS) -s $(BFCDIR)\BFCGUI\src -d $(CSDIR)\Engines\ElGUI\ElGUI\src "*.cpp"
+
+debug: $(LIBOUT)\BFCGUI_d.lib
+
+$(LIBOUT)\BFCGUI_d.lib : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCGUI_d.lib $(ALL_DEBUG_OBJ)
+
+release: $(LIBOUT)\BFCGUI.lib
+
+$(LIBOUT)\BFCGUI.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCGUI.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	copy $(LIBOUT)\BFCGUI.lib $(LIBINSTALL)
+
+installd: debug
+	copy $(LIBOUT)\BFCGUI_d.lib $(LIBINSTALL)
+
+uninstall:
+	DEL -f $(LIBINSTALL)\BFCGUI.lib
+	DEL -f $(LIBINSTALL)\BFCGUI_d.lib
+
+
+

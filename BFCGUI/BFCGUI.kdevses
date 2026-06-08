@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="2" >
+  <Doc0 NumberOfViews="1" URL="file:///home/bill/Sources/C%2B%2B/Engines/BFC/BFCGUI/src/CBfcGUI_DialogWindow.cpp" >
+   <View0 Encoding="" line="0" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/bill/Sources/C%2B%2B/Engines/BFC/BFCGUI/src/CBfcGUI_MenuWindow.cpp" >
+   <View0 Encoding="" line="0" Type="Source" />
+  </Doc1>
+ </DocsAndViews>
+ <pluginList>
+  <kdevdebugger>
+   <breakpointList>
+    <breakpoint0 location="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/ImageWindow.cpp:106" type="1" tracingFormatString="" traceFormatStringEnabled="0" condition="" tracingEnabled="0" enabled="1" >
+     <tracedExpressions/>
+    </breakpoint0>
+    <breakpoint1 location="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CFoxBFCWindow.cpp:1107" type="1" tracingFormatString="" traceFormatStringEnabled="0" condition="" tracingEnabled="0" enabled="1" >
+     <tracedExpressions/>
+    </breakpoint1>
+    <breakpoint2 location="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CBfcGUI_ScriptResource.cpp:317" type="1" tracingFormatString="" traceFormatStringEnabled="0" condition="" tracingEnabled="0" enabled="1" >
+     <tracedExpressions/>
+    </breakpoint2>
+   </breakpointList>
+   <showInternalCommands value="0" />
+  </kdevdebugger>
+  <kdevastyle>
+   <Extensions ext="*.cs *.cpp *.h *.hpp,*.c *.h,*.cxx *.hxx,*.c++ *.h++,*.cc *.hh,*.C *.H,*.diff ,*.inl,*.java,*.moc,*.patch,*.tlh,*.xpm" />
+   <AStyle IndentPreprocessors="0" FillCount="4" PadParenthesesOut="1" IndentNamespaces="1" IndentLabels="1" Fill="Tabs" MaxStatement="40" Brackets="Break" MinConditional="-1" IndentBrackets="0" PadParenthesesUn="1" BlockBreak="0" KeepStatements="1" KeepBlocks="1" BlockIfElse="0" IndentSwitches="1" PadOperators="0" FStyle="UserDefined" IndentCases="0" FillEmptyLines="0" BracketsCloseHeaders="0" BlockBreakAll="0" PadParenthesesIn="1" IndentClasses="1" IndentBlocks="0" FillForce="0" />
+  </kdevastyle>
+  <kdevbookmarks>
+   <bookmarks>
+    <bookmark url="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CBfcGUI_ScriptResource.cpp" >
+     <mark line="160" />
+     <mark line="10" />
+    </bookmark>
+    <bookmark url="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CBfcGUI_CursesWindow.cpp" >
+     <mark line="95" />
+    </bookmark>
+    <bookmark url="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CFoxBFCWindow.cpp" >
+     <mark line="195" />
+     <mark line="200" />
+     <mark line="1203" />
+    </bookmark>
+    <bookmark url="/home/bill/Sources/C++/Engines/BFC/BFCGUI/src/CBfcGUI_FoxLayer.cpp" >
+     <mark line="303" />
+    </bookmark>
+   </bookmarks>
+  </kdevbookmarks>
+  <kdevvalgrind>
+   <executable path="" params="" />
+   <valgrind path="" params="" />
+   <calltree path="" params="" />
+   <kcachegrind path="" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>

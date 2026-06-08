@@ -1,0 +1,83 @@
+#
+# WINDOWS Makefile
+#
+#  This is the Windows Makefile for BFCImage
+#
+#  Copyright (C) 2004-2011 by William P. Foster, all rights reserved
+#
+SHELL=C:/Windows/System32/cmd.exe
+VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
+SRCDIR=\Users\Bill\Sources
+BFCINC=$(SRCDIR)\C++\Engines\BFC\include
+BFCDIR=$(SRCDIR)\C++\Engines\BFC
+CSDIR=$(SRCDIR)\cs
+
+VER=1
+srcdir=..\src
+LIBOUT=.
+LIBINSTALL = \Users\Bill\Libraries
+DL=\Users\Bill\Third-Party
+FOXDIR = $(DL)\fox-current
+DJVU_DIR="C:\Program Files\DjVuZone\DjVuLibre\include"
+includes=-I$(srcdir) -I../../include -I$(FOXDIR)/include -I$(DJVU_DIR)\libdjvu -I$(DL)\jpeg-6b
+DEFS = -D WIN32 -D BFC_STATICLIB
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+#INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) $(includes) $(DEFS)
+
+LINKER = lib
+#LINKEROPTIONS = -r
+
+build : create debug
+
+all: check_headers create debug release
+
+rebuild: clean all
+
+backup:
+	programmer -b .
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpw $(srcdir)
+
+clean :
+	programmer -c
+	del $(LIBOUT)\BFCImage_d.lib
+	del $(LIBOUT)\BFCImage.lib
+
+head:
+	programmer -h ..\..\header $(srcdir)\*.cpp
+	programmer -h ..\..\header $(srcdir)\*.h
+
+debug : $(LIBOUT)/BFCImage_d.lib
+
+$(LIBOUT)/BFCImage_d.lib : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFCImage_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(LIBOUT)/BFCImage.lib
+
+$(LIBOUT)/BFCImage.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFCImage.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	copy $(LIBOUT)\BFCImage.lib $(LIBINSTALL)
+
+installd: debug
+	copy $(LIBOUT)\BFCImage_d.lib $(LIBINSTALL)
+
+uninstall:
+	DEL -f $(LIBINSTALL)\BFCImage_d.lib
+	DEL -f $(LIBINSTALL)\BFCImage.lib
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCImage.h > junk
+
+convert : 
+	skipper -i $(BFCINC);$(VCINC) $(DEFS) -s $(BFCDIR)\BFCImage\src -d $(CSDIR)\Engines\ElImage\src "*.cpp"
+
+
+

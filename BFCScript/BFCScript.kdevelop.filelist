@@ -1,0 +1,20 @@
+# KDevelop Custom Project File List
+Makefile
+MakefileBase
+src
+src/CBfcScript.cpp
+src/CBfcScript.h
+src/CBfcScript_Phrase.cpp
+src/CBfcScript_Phrase.h
+src/CBfcScript_Text.cpp
+src/CBfcScript_Text.h
+src/CBfcScript_XML.cpp
+src/CBfcScript_XML.h
+src/Equation.cpp
+src/Equation.h
+src/Script_C.cpp
+src/Script_C.h
+src/Script_CPlusPlus.cpp
+src/Script_CPlusPlus.h
+src/Script_Program.cpp
+src/Script_Program.h

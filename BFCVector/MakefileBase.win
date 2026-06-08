@@ -1,0 +1,83 @@
+#
+# WINDOWS Makefile
+#
+#  This is the visual studio Makefile for BFCVector
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2011-2026 William P. Foster
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+SRCBASE=\Sources
+LIBINSTALL=\Libraries
+
+SHELL=C:/Windows/System32/cmd.exe
+VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
+BFCINC=$(SRCBASE)\C++\Engines\BFC\include
+BFCDIR=$(SRCBASE)\C++\Engines\BFC
+CSDIR=$(SRCBASE)\cs
+
+VER=1
+srcdir=src
+LIBOUT = .
+includes=..\include
+DEFS = -D WIN32 -D BFC_STATICLIB
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
+
+LINKER = lib
+#LINKEROPTIONS = -r
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	programmer -b .
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpw $(srcdir)
+
+convert :
+	skipper -i $(BFCINC);$(VCINC) $(DEFS) -s $(BFCDIR)\BFCVector\src -d $(CSDIR)\Engines\ElVector\src "*.cpp"
+
+clean :
+	programmer -c
+	del $(LIBOUT)\BFCVector_d.lib
+	del $(LIBOUT)\BFCVector.lib
+
+debug : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCVector_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCVector.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	copy $(LIBOUT)\BFCVector.lib $(LIBINSTALL)
+
+installd: debug
+	copy $(LIBOUT)\BFCVector_d.lib $(LIBINSTALL)
+
+uninstall:
+	del $(LIBINSTALL)\BFCVector.lib
+	del $(LIBINSTALL)\BFCVector_d.lib
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCVector.h > junk
+
+
+

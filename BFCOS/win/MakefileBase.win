@@ -1,0 +1,85 @@
+#
+# Windows Makefile
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2011-2026 William P. Foster
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+#
+#LIBINSTALL=/usr/local/lib
+SHELL=C:/Windows/System32/cmd.exe
+VER=1
+LIBINSTALL = \Libraries
+LIBOUT=.
+FOXDIR=\Sources\C++\Third-Party\fox-current
+srcdir=..\src
+includes=-I$(srcdir) -I..\..\include  -I$(FOXDIR)/include
+DEFS = -D WIN32 -D BFC_STATICLIB
+LIBS = $(LIBOUT)/BFC.so
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+#INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) $(CDEBUG) $(includes) $(DEFS)
+
+LINKER = lib
+#LINKEROPTIONS = -r
+
+
+build : create debug
+
+all : create check_headers debug release
+
+# CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+
+backup:
+	programmer -b .
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpw $(srcdir)
+
+debug : $(LIBOUT)/BFCOS_d.lib
+
+$(LIBOUT)/BFCOS_d.lib: $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCOS_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(LIBOUT)/BFCOS.lib
+
+$(LIBOUT)/BFCOS.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCOS.lib $(ALL_RELEASE_OBJ)
+
+install : installd release
+	copy $(LIBOUT)\BFCOS.lib $(LIBINSTALL)
+
+installd: debug
+	copy $(LIBOUT)\BFCOS_d.lib $(LIBINSTALL)
+
+uninstall:
+	del -f $(LIBINSTALL)\BFCOS.lib
+	del -f $(LIBINSTALL)\BFCOS_d.lib
+
+clean:
+	programmer -c
+	del $(LIBOUT)\BFCOS.lib
+	del $(LIBOUT)\BFCOS_d.lib
+
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCOS.h > junk
+
+
+
+

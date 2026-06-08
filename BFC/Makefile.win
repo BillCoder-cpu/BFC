@@ -1,0 +1,99 @@
+# Project: BFC
+# Makefile created by Dev-C++ 4.9.9.1
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = CBfc_String.o CBfc_Value.o character.o Bfc_DebugStatic.o CBfc_2dRect.o CBfc_2dSize.o CBfc_3dPointSpace.o CBfc_Angle.o CBfc_Array.o CBfc_CompressionAlgorythm.o CBfc_Distance.o CBfc_Exception.o CBfc_File.o CBfc_Filename.o CBfc_LinkedList.o CBfc_MatrixDoubles.o CBfc_PointSpaceTime.o CBfc_PointTime.o CBfc_ReferencedAllocation.o CBfc_ReferencedObject.o CBfc_ReferencedPointer.o CBfc_Stream.o CBfc_StreamSource.o $(RES)
+LINKOBJ  = CBfc_String.o CBfc_Value.o character.o Bfc_DebugStatic.o CBfc_2dRect.o CBfc_2dSize.o CBfc_3dPointSpace.o CBfc_Angle.o CBfc_Array.o CBfc_CompressionAlgorythm.o CBfc_Distance.o CBfc_Exception.o CBfc_File.o CBfc_Filename.o CBfc_LinkedList.o CBfc_MatrixDoubles.o CBfc_PointSpaceTime.o CBfc_PointTime.o CBfc_ReferencedAllocation.o CBfc_ReferencedObject.o CBfc_ReferencedPointer.o CBfc_Stream.o CBfc_StreamSource.o $(RES)
+LIBS =  -L"C:/Program Files/Dev-Cpp/lib"  
+INCS =  -I"C:/Program Files/Dev-Cpp/include"  -I"/Sources/C++/Engines/BFC/include" 
+CXXINCS =  -I"C:/Program Files/Dev-Cpp/include/c++/3.3.1"  -I"C:/Program Files/Dev-Cpp/include/c++/3.3.1/mingw32"  -I"C:/Program Files/Dev-Cpp/include/c++/3.3.1/backward"  -I"C:/Program Files/Dev-Cpp/lib/gcc-lib/mingw32/3.3.1/include"  -I"C:/Program Files/Dev-Cpp/include"  -I"/Sources/C++/Engines/BFC/include" 
+BIN  = BFC.dll
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before BFC.dll all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=libBFC.def
+STATICLIB=libBFC.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --driver-name c++ --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+CBfc_String.o: CBfc_String.cpp
+	$(CPP) -c CBfc_String.cpp -o CBfc_String.o $(CXXFLAGS)
+
+CBfc_Value.o: CBfc_Value.cpp
+	$(CPP) -c CBfc_Value.cpp -o CBfc_Value.o $(CXXFLAGS)
+
+character.o: character.cpp
+	$(CPP) -c character.cpp -o character.o $(CXXFLAGS)
+
+Bfc_DebugStatic.o: Bfc_DebugStatic.cpp
+	$(CPP) -c Bfc_DebugStatic.cpp -o Bfc_DebugStatic.o $(CXXFLAGS)
+
+CBfc_2dRect.o: CBfc_2dRect.cpp
+	$(CPP) -c CBfc_2dRect.cpp -o CBfc_2dRect.o $(CXXFLAGS)
+
+CBfc_2dSize.o: CBfc_2dSize.cpp
+	$(CPP) -c CBfc_2dSize.cpp -o CBfc_2dSize.o $(CXXFLAGS)
+
+CBfc_3dPointSpace.o: CBfc_3dPointSpace.cpp
+	$(CPP) -c CBfc_3dPointSpace.cpp -o CBfc_3dPointSpace.o $(CXXFLAGS)
+
+CBfc_Angle.o: CBfc_Angle.cpp
+	$(CPP) -c CBfc_Angle.cpp -o CBfc_Angle.o $(CXXFLAGS)
+
+CBfc_Array.o: CBfc_Array.cpp
+	$(CPP) -c CBfc_Array.cpp -o CBfc_Array.o $(CXXFLAGS)
+
+CBfc_CompressionAlgorythm.o: CBfc_CompressionAlgorythm.cpp
+	$(CPP) -c CBfc_CompressionAlgorythm.cpp -o CBfc_CompressionAlgorythm.o $(CXXFLAGS)
+
+CBfc_Distance.o: CBfc_Distance.cpp
+	$(CPP) -c CBfc_Distance.cpp -o CBfc_Distance.o $(CXXFLAGS)
+
+CBfc_Exception.o: CBfc_Exception.cpp
+	$(CPP) -c CBfc_Exception.cpp -o CBfc_Exception.o $(CXXFLAGS)
+
+CBfc_File.o: CBfc_File.cpp
+	$(CPP) -c CBfc_File.cpp -o CBfc_File.o $(CXXFLAGS)
+
+CBfc_Filename.o: CBfc_Filename.cpp
+	$(CPP) -c CBfc_Filename.cpp -o CBfc_Filename.o $(CXXFLAGS)
+
+CBfc_LinkedList.o: CBfc_LinkedList.cpp
+	$(CPP) -c CBfc_LinkedList.cpp -o CBfc_LinkedList.o $(CXXFLAGS)
+
+CBfc_MatrixDoubles.o: CBfc_MatrixDoubles.cpp
+	$(CPP) -c CBfc_MatrixDoubles.cpp -o CBfc_MatrixDoubles.o $(CXXFLAGS)
+
+CBfc_PointSpaceTime.o: CBfc_PointSpaceTime.cpp
+	$(CPP) -c CBfc_PointSpaceTime.cpp -o CBfc_PointSpaceTime.o $(CXXFLAGS)
+
+CBfc_PointTime.o: CBfc_PointTime.cpp
+	$(CPP) -c CBfc_PointTime.cpp -o CBfc_PointTime.o $(CXXFLAGS)
+
+CBfc_ReferencedAllocation.o: CBfc_ReferencedAllocation.cpp
+	$(CPP) -c CBfc_ReferencedAllocation.cpp -o CBfc_ReferencedAllocation.o $(CXXFLAGS)
+
+CBfc_ReferencedObject.o: CBfc_ReferencedObject.cpp
+	$(CPP) -c CBfc_ReferencedObject.cpp -o CBfc_ReferencedObject.o $(CXXFLAGS)
+
+CBfc_ReferencedPointer.o: CBfc_ReferencedPointer.cpp
+	$(CPP) -c CBfc_ReferencedPointer.cpp -o CBfc_ReferencedPointer.o $(CXXFLAGS)
+
+CBfc_Stream.o: CBfc_Stream.cpp
+	$(CPP) -c CBfc_Stream.cpp -o CBfc_Stream.o $(CXXFLAGS)
+
+CBfc_StreamSource.o: CBfc_StreamSource.cpp
+	$(CPP) -c CBfc_StreamSource.cpp -o CBfc_StreamSource.o $(CXXFLAGS)

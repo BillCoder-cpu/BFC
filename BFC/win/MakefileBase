@@ -1,0 +1,88 @@
+#
+# WINDOWS Makefile
+#
+#  This is the msys2 mingw Makefile for BFC
+#
+#  Copyright (C) 2004 through 2008 by William P. Foster, all rights reserved
+#
+
+DRIVE = /y
+VER=1
+srcdir=../src
+includes=../../include
+
+#LIBINSTALL is the Target!
+LIBINSTALL=/lib
+
+#LIBOUT is the intermediate folder
+LIBOUT = $(DRIVE)/Libraries
+
+DEFS = -D WIN32
+
+CCPP = gcc
+CPPDEBUG = -D _DEBUG 
+# /Zi
+# INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS) -D STATICLIB
+
+LINKER = g++ -shared
+LINKEROPTIONS =
+#LINKEROPTIONS = --export-dynamic
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	programmer -b .
+
+rebuild: clean all
+
+clean :
+	del Debug\*.o
+	del Release\*.o
+	del $(LIBOUT)\BFC_d.lib
+	del $(LIBOUT)\BFC.lib
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+create:
+	rem mkdir Debug
+	rem mkdir Release
+	programmer -mp $(srcdir)
+
+debug : $(LIBOUT)/BFC_d.so.$(VER)
+
+$(LIBOUT)/BFC_d.so.$(VER) : $(ALL_DEBUG_OBJ)
+	$(LINKER) -Wl,-soname,BFC_d.so.$(VER) -o $(LIBOUT)/BFC_d.so.$(VER) $(ALL_DEBUG_OBJ)
+#	rem $(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFC_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(LIBOUT)/BFC.so.$(VER)
+
+$(LIBOUT)/BFC.so.$(VER) : $(ALL_RELEASE_OBJ)
+	$(LINKER) -Wl,-soname,BFC.so.$(VER) -o $(LIBOUT)/BFC.so.$(VER) $(ALL_RELEASE_OBJ)
+#	rem $(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFC.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFC.so.$(VER) $(LIBINSTALL)/BFC.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC.so
+	link $(LIBINSTALL)/BFC.so.$(VER) $(LIBINSTALL)/BFC.so
+
+installd: debug
+	cp $(LIBOUT)/BFC_d.so.$(VER) $(LIBINSTALL)/BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC_d.so
+	link $(LIBINSTALL)/BFC_d.so.$(VER) $(LIBINSTALL)/BFC_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFC_d.so
+	rm -f $(LIBINSTALL)/BFC_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFC.so
+	rm -f $(LIBINSTALL)/BFC.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFC.h > junk
+
+
+

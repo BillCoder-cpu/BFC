@@ -1,0 +1,22 @@
+# KDevelop Custom Project File List
+Makefile
+Makefile.win
+MakefileBase
+src
+src/CBfcOS_Application.cpp
+src/CBfcOS_Application.h
+src/CBfcOS_Application_Fox.cpp
+src/CBfcOS_Application_Fox.h
+src/CBfcOS_Application_WxWidgets.cpp
+src/CBfcOS_Application_WxWidgets.h
+src/CBfcOS_FileDialog.cpp
+src/CBfcOS_FileDialog.h
+src/CBfcOS_FileOperation.cpp
+src/CBfcOS_FileOperation.h
+src/CBfcOS_FileSelector.cpp
+src/CBfcOS_FileSelector.h
+src/CBfcOS_Object.h
+src/CBfcOS_Registry.cpp
+src/CBfcOS_Registry.h
+src/CBfcOS_Static.cpp
+src/CBfcOS_Static.h

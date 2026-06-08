@@ -1,0 +1,158 @@
+# Anjuta Version 1.2.4a 
+Compatibility Level: 1 
+
+<PROJECT_DESCRIPTION_START>
+Graphical Interface<PROJECT_DESCRIPTION_END>
+<CONFIG_PROGS_START>
+<CONFIG_PROGS_END>
+<CONFIG_LIBS_START>
+<CONFIG_LIBS_END>
+<CONFIG_HEADERS_START>
+<CONFIG_HEADERS_END>
+<CONFIG_CHARACTERISTICS_START>
+<CONFIG_CHARACTERISTICS_END>
+<CONFIG_LIB_FUNCS_START>
+<CONFIG_LIB_FUNCS_END>
+<CONFIG_ADDITIONAL_START>
+<CONFIG_ADDITIONAL_END>
+<CONFIG_FILES_START>
+<CONFIG_FILES_END>
+<MAKEFILE_AM_START>
+<MAKEFILE_AM_END>
+
+props.file.type=project
+
+anjuta.version=1.2.4a
+anjuta.compatibility.level=1
+
+project.name=BFCGUI
+project.type=GENERIC
+project.target.type=EXECUTABLE
+project.version=0.99
+project.author=William P. Foster
+project.source.target=unknown
+project.has.gettext=0
+project.gui.command=
+project.programming.language=C++
+project.excluded.modules=intl
+
+project.config.extra.modules.before=
+project.config.extra.modules.after=
+project.config.blocked=1
+project.config.disable.overwriting=1 1 1 1 1 1 1 1 1 
+
+project.menu.entry=BFCGUI Version 0.99
+project.menu.group=Application
+project.menu.comment=BFCGUI Version 0.99
+project.menu.icon=
+project.menu.need.terminal=0
+
+project.configure.options=
+anjuta.program.arguments=
+preferences.build.option.jobs=0
+preferences.build.option.silent=0
+preferences.build.option.autosave=0
+preferences.make=make
+preferences.build.option.keep.going=1
+preferences.build.option.warn.undef=0
+preferences.autoformat.custom.style= -i8 -sc -bli0 -bl0 -cbi0 -ss
+preferences.indent.opening=0
+preferences.autoformat.disable=1
+preferences.indent.automatic=1
+preferences.use.tabs=1
+preferences.indent.size=4
+preferences.tabsize=4
+preferences.indent.closing=0
+
+module.include.name=.
+module.include.type=
+module.include.files=\
+	Terminal/CBfcUITerminal_Terminal.h\
+	src/CBfcGUI_GLWindow.h\
+	src/CBfcGUI_MessageBox.h\
+	src/CBfcGUI_MenuWindow.h\
+	src/CFoxBFCWindow.h\
+	src/CBfcGUI_TreeControl.h\
+	src/CBfcGUI_Resource.h\
+	src/CBfcGUI_Window.h\
+	src/CBfcGUI_ResourceEntity.h\
+	src/CBfcGUI_Toolbar.h\
+	src/CBfcGUI_CursesWindow.h\
+	src/ProgressControl.h\
+	src/CBfcGUI_ScriptResource.h\
+	src/CBfcGUI_Object.h\
+	src/CBfcGUI_ListControl.h\
+	src/CBfcGUI_DialogWindow.h\
+	src/CBfcGUI_Message.h\
+	src/CBfcGUI_Brush.h\
+	src/CBfcGUI_TerminalWindow.h\
+	src/ImageWindow.h\
+	src/CBfcGUI_EditInterface.h\
+	src/CBfcGUI.h\
+	src/CBfcGUI_FoxLayer.h\
+	src/CBfcGUI_WxLayer.h\
+	src/CBfcGUI_ResourceStore.h\
+	src/CWxBFCWindow.h
+
+module.source.name=.
+module.source.type=
+module.source.files=\
+	src/ResourceWindow.cpp\
+	src/CBfcGUI_EditInterface.cpp\
+	src/CBfcGUI_Toolbar.cpp\
+	src/CFoxBFCWindow.cpp\
+	src/CBfcGUI_MenuWindow.cpp\
+	src/CBfcGUI_ResourceStore.cpp\
+	src/CBfcGUI_MessageBox.cpp\
+	src/CBfcGUI_FoxLayer.cpp\
+	src/CBfcGUI_CursesWindow.cpp\
+	src/CBfcGUI_ListControl.cpp\
+	src/CWxBFCWindow.cpp\
+	src/ImageWindow.cpp\
+	src/CBfcGUI_ResourceEntity.cpp\
+	src/CBfcGUI.cpp\
+	src/CBfcGUI_ScriptResource.cpp\
+	src/CBfcGUI_DialogWindow.cpp\
+	src/CBfcGUI_Window.cpp\
+	src/CBfcGUI_Brush.cpp\
+	src/ProgressControl.cpp\
+	src/CBfcGUI_WxLayer.cpp\
+	src/CBfcGUI_TerminalWindow.cpp\
+	src/CBfcGUI_Resource.cpp
+
+module.pixmap.name=.
+module.pixmap.type=
+module.pixmap.files=
+
+module.data.name=.
+module.data.type=
+module.data.files=
+
+module.help.name=.
+module.help.type=
+module.help.files=
+
+module.doc.name=.
+module.doc.type=
+module.doc.files=
+
+module.po.files=
+
+compiler.options.supports=
+compiler.options.include.paths=\
+	.\
+	..
+compiler.options.library.paths=
+compiler.options.libraries=
+compiler.options.libraries.selected=
+compiler.options.defines=\
+	HAVE_CONFIG_H
+compiler.options.defines.selected=
+compiler.options.warning.buttons=0 0 1 1 0 1 0 0 0 0 0 0 0 1 0 0 
+compiler.options.optimize.buttons=0 0 1 0 
+compiler.options.other.buttons=1 0 
+compiler.options.other.c.flags=
+compiler.options.other.l.flags=
+compiler.options.other.l.libs=
+
+project.src.paths=

@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+ <html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-16" http-equiv="Content-Type" /><title _locID="ConversionReport0">
+          Migration Report
+        </title><style> 
+                    /* Body style, for the entire document */
+                    body
+                    {
+                        background: #F3F3F4;
+                        color: #1E1E1F;
+                        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Header1 style, used for the main title */
+                    h1
+                    {
+                        padding: 10px 0px 10px 10px;
+                        font-size: 21pt;
+                        background-color: #E2E2E2;
+                        border-bottom: 1px #C1C1C2 solid; 
+                        color: #201F20;
+                        margin: 0;
+                        font-weight: normal;
+                    }
+
+                    /* Header2 style, used for "Overview" and other sections */
+                    h2
+                    {
+                        font-size: 18pt;
+                        font-weight: normal;
+                        padding: 15px 0 5px 0;
+                        margin: 0;
+                    }
+
+                    /* Header3 style, used for sub-sections, such as project name */
+                    h3
+                    {
+                        font-weight: normal;
+                        font-size: 15pt;
+                        margin: 0;
+                        padding: 15px 0 5px 0;
+                        background-color: transparent;
+                    }
+
+                    /* Color all hyperlinks one color */
+                    a
+                    {
+                        color: #1382CE;
+                    }
+
+                    /* Table styles */ 
+                    table
+                    {
+                        border-spacing: 0 0;
+                        border-collapse: collapse;
+                        font-size: 10pt;
+                    }
+
+                    table th
+                    {
+                        background: #E7E7E8;
+                        text-align: left;
+                        text-decoration: none;
+                        font-weight: normal;
+                        padding: 3px 6px 3px 6px;
+                    }
+
+                    table td
+                    {
+                        vertical-align: top;
+                        padding: 3px 6px 5px 5px;
+                        margin: 0px;
+                        border: 1px solid #E7E7E8;
+                        background: #F7F7F8;
+                    }
+
+                    /* Local link is a style for hyperlinks that link to file:/// content, there are lots so color them as 'normal' text until the user mouse overs */
+                    .localLink
+                    {
+                        color: #1E1E1F;
+                        background: #EEEEED;
+                        text-decoration: none;
+                    }
+
+                    .localLink:hover
+                    {
+                        color: #1382CE;
+                        background: #FFFF99;
+                        text-decoration: none;
+                    }
+
+                    /* Center text, used in the over views cells that contain message level counts */ 
+                    .textCentered
+                    {
+                        text-align: center;
+                    }
+
+                    /* The message cells in message tables should take up all avaliable space */
+                    .messageCell
+                    {
+                        width: 100%;
+                    }
+
+                    /* Padding around the content after the h1 */ 
+                    #content 
+                    {
+	                    padding: 0px 12px 12px 12px; 
+                    }
+
+                    /* The overview table expands to width, with a max width of 97% */ 
+                    #overview table
+                    {
+                        width: auto;
+                        max-width: 75%; 
+                    }
+
+                    /* The messages tables are always 97% width */
+                    #messages table
+                    {
+                        width: 97%;
+                    }
+
+                    /* All Icons */
+                    .IconSuccessEncoded, .IconInfoEncoded, .IconWarningEncoded, .IconErrorEncoded
+                    {
+                        min-width:18px;
+                        min-height:18px; 
+                        background-repeat:no-repeat;
+                        background-position:center;
+                    }
+
+                    /* Success icon encoded */
+                    .IconSuccessEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconSuccess#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABcElEQVR4Xq2TsUsCURzHv15g8ZJcBWlyiYYgCIWcb9DFRRwMW5TA2c0/QEFwFkxxUQdxVlBwCYWOi6IhWgQhBLHJUCkhLr/BW8S7gvrAg+N+v8/v+x68Z8MGy+XSCyABQAXgBgHGALoASkIIDWSLeLBetdHryMjd5IxQPWT4rn1c/P7+xxp72Cs9m5SZ0Bq2vPnbPFafK2zDvmNHypdC0BPkLlQhxJsCAhQoZwdZU5mwxh720qGo8MzTxTTKZDPCx2HoVzp6lz0Q9tKhyx0kGs8Ny+TkWRKk8lCROwEduhyg9l/6lunOPSfmH3NUH6uQ0KHLAe7JYvJjevm+DAMGJHToKtigE+vwvIidxLamb8IBY9e+C5LiXREkfho3TSd06HJA13/oh6T51MTsfQbHrsMynQ5dDihFjiK8JJAU9AKIWTp76dCVN7HWHrajmUEGvyF9nkbAE6gLIS7kTUyuf2gscLoJrElZo/Mvj+nPz/kLTmfnEwP3tB0AAAAASUVORK5CYII=);
+                    }
+
+                    /* Information icon encoded */
+                    .IconInfoEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconInformation#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHElEQVR4Xs2TsUoDQRRF7wwoziokjZUKadInhdhukR9YP8DMX1hYW+QvdsXa/QHBbcXC7W0CamWTQnclFutceIQJwwaWNLlwm5k5d94M76mmaeCrrmsLYOocY12FcxZFUeozCqKqqgYA8uevv1H6VuPxcwlfk5N92KHBxfFeCSAxxswlYAW/Xr989x/mv9gkhtyMDhcAxgzRsp7flj8B/HF1RsMXq+NZMkopaHe7lbKxQUEIGbKsYNoGn969060hZBkQex/W8oRQwsQaW2o3Ago2SVcJUzAgY3N0lTCZZm+zPS8HB51gMmS1DEYyOz9acKO1D8JWTlafKIMxdhvlfdyT94Vv5h7P8Ky7nQzACmhvKq3zk3PjW9asz9D/1oigecsioooAAAAASUVORK5CYII=);
+                    }
+
+                    /* Warning icon encoded */
+                    .IconWarningEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconWarning#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAx0lEQVR4XpWSMQ7CMAxFf4xAyBMLCxMrO8dhaBcuwdCJS3RJBw7SA/QGTCxdWJgiQYWKXJWKIXHIlyw5lqr34tQgEOdcBsCOx5yZK3hCCKdYXneQkh4pEfqzLfu+wVDSyyzFoJjfz9NB+pAF+eizx2Vruts0k15mPgvS6GYvpVtQhB61IB/dk6AF6fS4Ben0uIX5odtFe8Q/eW1KvFeH4e8khT6+gm5B+t3juyDt7n0jpe+CANTd+oTUjN/U3yVaABnSUjFz/gFq44JaVSCXeQAAAABJRU5ErkJggg==);
+                    }
+
+                    /* Error icon encoded */
+                    .IconErrorEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconError#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVR4XqWTvUoEQRCE6wYPZUA80AfwAQz23uCMjA7MDRQEIzPBVEyNTQUFIw00vcQTTMzuAh/AxEQQT8HF/3G/oGGnEUGuoNnd6qoZuqltyKEsyzVJq5I6rnUp6SjGeGhESikzzlc1eL7opfuVbrqbU1Zw9NCgtQMaZpY0eNnaaL2fHusvTK5vKu7sjSS1Y4y3QUA6K3e3Mau5UFDyMP7tYF9o8cAHZv68vipoIJg971PZIZ5HiwdvYGGvFVFHmGmZ2MxwmQYPXubPl9Up0tfoMQGetXd6mRbvhBw+boZ6WF7Mbv1+GsHRk0fQmPAH1GfmZirbCfDJ61tw3Px8/8pZsPAG4jlVhcPgZ7adwNWBB68lkRQWFiTgFlbnLY3DGGM7izIJIyT/jjIvEJw6fdJTc6krDzh6aMwMP9bvDH4ADSsa9uSWVJkAAAAASUVORK5CYII=);
+                    }
+                 </style><script type="text/javascript" language="javascript"> 
+          
+            // Startup 
+            // Hook up the the loaded event for the document/window, to linkify the document content
+            var startupFunction = function() { linkifyElement("messages"); };
+            
+            if(window.attachEvent)
+            {
+              window.attachEvent('onload', startupFunction);
+            }
+            else if (window.addEventListener) 
+            {
+              window.addEventListener('load', startupFunction, false);
+            }
+            else 
+            {
+              document.addEventListener('load', startupFunction, false);
+            } 
+            
+            // Toggles the visibility of table rows with the specified name 
+            function toggleTableRowsByName(name)
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  if(!!currentName && currentName.indexOf(name) == 0)
+                  {
+                      var isVisible = allRows[i].style.display == ''; 
+                      isVisible ? allRows[i].style.display = 'none' : allRows[i].style.display = '';
+                  }
+               }
+            }
+            
+            function scrollToFirstVisibleRow(name) 
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  var isVisible = allRows[i].style.display == ''; 
+                  if(!!currentName && currentName.indexOf(name) == 0 && isVisible)
+                  {
+                     allRows[i].scrollIntoView(true); 
+                     return true; 
+                  }
+               }
+               
+               return false;
+            }
+            
+            // Linkifies the specified text content, replaces candidate links with html links 
+            function linkify(text)
+            {
+                 if(!text || 0 === text.length)
+                 {
+                     return text; 
+                 }
+
+                 // Find http, https and ftp links and replace them with hyper links 
+                 var urlLink = /(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\/\\\+&%\$#\=~;\{\}])*/gi;
+                 
+                 return text.replace(urlLink, '<a href="$&">$&</a>') ;
+            }
+            
+            // Linkifies the specified element by ID
+            function linkifyElement(id)
+            {
+                var element = document.getElementById(id);
+                if(!!element)
+                {
+                  element.innerHTML = linkify(element.innerHTML); 
+                }
+            }
+            
+            function ToggleMessageVisibility(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              toggleTableRowsByName("MessageRowClass" + projectName);
+              toggleTableRowsByName('MessageRowHeaderShow' + projectName);
+              toggleTableRowsByName('MessageRowHeaderHide' + projectName); 
+            }
+            
+            function ScrollToFirstVisibleMessage(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              // First try the 'Show messages' row
+              if(!scrollToFirstVisibleRow('MessageRowHeaderShow' + projectName))
+              {
+                // Failed to find a visible row for 'Show messages', try an actual message row 
+                scrollToFirstVisibleRow('MessageRowClass' + projectName); 
+              }
+            }
+           </script></head><body><h1 _locID="ConversionReport">
+          Migration Report - BFCHome</h1><div id="content"><h2 _locID="OverviewTitle">Overview</h2><div id="overview"><table><tr><th></th><th _locID="ProjectTableHeader">Project</th><th _locID="PathTableHeader">Path</th><th _locID="ErrorsTableHeader">Errors</th><th _locID="WarningsTableHeader">Warnings</th><th _locID="MessagesTableHeader">Messages</th></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFC">BFC</a></strong></td><td>BFC\BFC.vcproj</td><td class="textCentered"><a href="#BFCError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFC'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCData">BFCData</a></strong></td><td>BFCData\BFCData.vcproj</td><td class="textCentered"><a href="#BFCDataError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCData'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCGui">BFCGui</a></strong></td><td>BFCGUI\BFCGui.vcproj</td><td class="textCentered"><a href="#BFCGuiError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCGui'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCImage">BFCImage</a></strong></td><td>BFCImage\Win32_Project\BFCImage.vcproj</td><td class="textCentered"><a href="#BFCImageError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCImage'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCLocal">BFCLocal</a></strong></td><td>BFCLocal\BFCLocal.vcproj</td><td class="textCentered"><a href="#BFCLocalError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCLocal'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCOS">BFCOS</a></strong></td><td>BFCOS\BFCOS.vcproj</td><td class="textCentered"><a href="#BFCOSError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCOS'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCRIP">BFCRIP</a></strong></td><td>BFCRip\BFCRIP.vcproj</td><td class="textCentered"><a href="#BFCRIPError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCRIP'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCScript">BFCScript</a></strong></td><td>BFCScript\BFCScript.vcproj</td><td class="textCentered"><a href="#BFCScriptError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCScript'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCUtil">BFCUtil</a></strong></td><td>BFCUtil\BFCUtil.vcproj</td><td class="textCentered"><a href="#BFCUtilError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCUtil'); return false;">1</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#BFCVector">BFCVector</a></strong></td><td>BFCVector\BFCVector.vcproj</td><td class="textCentered"><a href="#BFCVectorError">2</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('BFCVector'); return false;">1</a></td></tr><tr><td class="IconWarningEncoded" /><td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">Solution</span></a></strong></td><td>BFCHome.sln</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#SolutionWarning">1</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Solution'); return false;">2</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#Solution Items">Solution Items</a></strong></td><td>Solution Items</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr></table></div><h2 _locID="SolutionAndProjectsTitle">Solution and projects</h2><div id="messages"><a name="BFC" /><h3>BFC</h3><table><tr id="BFCHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFC"><td class="IconErrorEncoded"><a name="BFCError" /></td><td class="messageCell"><strong>BFC\BFC.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFC\BFC.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFC"><td class="IconErrorEncoded"><a name="BFCError" /></td><td class="messageCell"><strong>BFC\BFC.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFC"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCMessage" onclick="ToggleMessageVisibility('BFC'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFC" style="display: none"><td class="IconInfoEncoded"><a name="BFCMessage" /></td><td class="messageCell"><strong>BFC\BFC.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFC\BFC.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFC"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCMessage" onclick="ToggleMessageVisibility('BFC'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCData" /><h3>BFCData</h3><table><tr id="BFCDataHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCData"><td class="IconErrorEncoded"><a name="BFCDataError" /></td><td class="messageCell"><strong>BFCData\BFCData.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCData\BFCData.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCData"><td class="IconErrorEncoded"><a name="BFCDataError" /></td><td class="messageCell"><strong>BFCData\BFCData.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCData"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCDataMessage" onclick="ToggleMessageVisibility('BFCData'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCData" style="display: none"><td class="IconInfoEncoded"><a name="BFCDataMessage" /></td><td class="messageCell"><strong>BFCData\BFCData.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCData\BFCData.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCData"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCDataMessage" onclick="ToggleMessageVisibility('BFCData'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCGui" /><h3>BFCGui</h3><table><tr id="BFCGuiHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCGui"><td class="IconErrorEncoded"><a name="BFCGuiError" /></td><td class="messageCell"><strong>BFCGUI\BFCGui.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCGUI\BFCGui.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCGui"><td class="IconErrorEncoded"><a name="BFCGuiError" /></td><td class="messageCell"><strong>BFCGUI\BFCGui.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCGui"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCGuiMessage" onclick="ToggleMessageVisibility('BFCGui'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCGui" style="display: none"><td class="IconInfoEncoded"><a name="BFCGuiMessage" /></td><td class="messageCell"><strong>BFCGUI\BFCGui.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCGUI\BFCGui.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCGui"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCGuiMessage" onclick="ToggleMessageVisibility('BFCGui'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCImage" /><h3>BFCImage</h3><table><tr id="BFCImageHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCImage"><td class="IconErrorEncoded"><a name="BFCImageError" /></td><td class="messageCell"><strong>BFCImage\Win32_Project\BFCImage.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCImage\Win32_Project\BFCImage.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCImage"><td class="IconErrorEncoded"><a name="BFCImageError" /></td><td class="messageCell"><strong>BFCImage\Win32_Project\BFCImage.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCImage"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCImageMessage" onclick="ToggleMessageVisibility('BFCImage'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCImage" style="display: none"><td class="IconInfoEncoded"><a name="BFCImageMessage" /></td><td class="messageCell"><strong>BFCImage\Win32_Project\BFCImage.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCImage\Win32_Project\BFCImage.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCImage"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCImageMessage" onclick="ToggleMessageVisibility('BFCImage'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCLocal" /><h3>BFCLocal</h3><table><tr id="BFCLocalHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCLocal"><td class="IconErrorEncoded"><a name="BFCLocalError" /></td><td class="messageCell"><strong>BFCLocal\BFCLocal.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCLocal\BFCLocal.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCLocal"><td class="IconErrorEncoded"><a name="BFCLocalError" /></td><td class="messageCell"><strong>BFCLocal\BFCLocal.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCLocal"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCLocalMessage" onclick="ToggleMessageVisibility('BFCLocal'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCLocal" style="display: none"><td class="IconInfoEncoded"><a name="BFCLocalMessage" /></td><td class="messageCell"><strong>BFCLocal\BFCLocal.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCLocal\BFCLocal.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCLocal"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCLocalMessage" onclick="ToggleMessageVisibility('BFCLocal'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCOS" /><h3>BFCOS</h3><table><tr id="BFCOSHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCOS"><td class="IconErrorEncoded"><a name="BFCOSError" /></td><td class="messageCell"><strong>BFCOS\BFCOS.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCOS\BFCOS.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCOS"><td class="IconErrorEncoded"><a name="BFCOSError" /></td><td class="messageCell"><strong>BFCOS\BFCOS.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCOS"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCOSMessage" onclick="ToggleMessageVisibility('BFCOS'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCOS" style="display: none"><td class="IconInfoEncoded"><a name="BFCOSMessage" /></td><td class="messageCell"><strong>BFCOS\BFCOS.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCOS\BFCOS.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCOS"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCOSMessage" onclick="ToggleMessageVisibility('BFCOS'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCRIP" /><h3>BFCRIP</h3><table><tr id="BFCRIPHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCRIP"><td class="IconErrorEncoded"><a name="BFCRIPError" /></td><td class="messageCell"><strong>BFCRip\BFCRIP.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCRip\BFCRIP.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCRIP"><td class="IconErrorEncoded"><a name="BFCRIPError" /></td><td class="messageCell"><strong>BFCRip\BFCRIP.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCRIP"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCRIPMessage" onclick="ToggleMessageVisibility('BFCRIP'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCRIP" style="display: none"><td class="IconInfoEncoded"><a name="BFCRIPMessage" /></td><td class="messageCell"><strong>BFCRip\BFCRIP.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCRip\BFCRIP.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCRIP"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCRIPMessage" onclick="ToggleMessageVisibility('BFCRIP'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCScript" /><h3>BFCScript</h3><table><tr id="BFCScriptHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCScript"><td class="IconErrorEncoded"><a name="BFCScriptError" /></td><td class="messageCell"><strong>BFCScript\BFCScript.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCScript\BFCScript.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCScript"><td class="IconErrorEncoded"><a name="BFCScriptError" /></td><td class="messageCell"><strong>BFCScript\BFCScript.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCScript"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCScriptMessage" onclick="ToggleMessageVisibility('BFCScript'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCScript" style="display: none"><td class="IconInfoEncoded"><a name="BFCScriptMessage" /></td><td class="messageCell"><strong>BFCScript\BFCScript.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCScript\BFCScript.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCScript"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCScriptMessage" onclick="ToggleMessageVisibility('BFCScript'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCUtil" /><h3>BFCUtil</h3><table><tr id="BFCUtilHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCUtil"><td class="IconErrorEncoded"><a name="BFCUtilError" /></td><td class="messageCell"><strong>BFCUtil\BFCUtil.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCUtil\BFCUtil.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCUtil"><td class="IconErrorEncoded"><a name="BFCUtilError" /></td><td class="messageCell"><strong>BFCUtil\BFCUtil.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCUtil"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCUtilMessage" onclick="ToggleMessageVisibility('BFCUtil'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCUtil" style="display: none"><td class="IconInfoEncoded"><a name="BFCUtilMessage" /></td><td class="messageCell"><strong>BFCUtil\BFCUtil.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCUtil\BFCUtil.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCUtil"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCUtilMessage" onclick="ToggleMessageVisibility('BFCUtil'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="BFCVector" /><h3>BFCVector</h3><table><tr id="BFCVectorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="ErrorRowClassBFCVector"><td class="IconErrorEncoded"><a name="BFCVectorError" /></td><td class="messageCell"><strong>BFCVector\BFCVector.vcproj:
+        </strong><span>File 'Y:\Sources\C++\Engines\BFC\BFC\BFCVector\BFCVector.vcproj' was not found.</span></td></tr><tr name="ErrorRowClassBFCVector"><td class="IconErrorEncoded"><a name="BFCVectorError" /></td><td class="messageCell"><strong>BFCVector\BFCVector.vcproj:
+        </strong><span>Project upgrade failed.</span></td></tr><tr name="MessageRowHeaderShowBFCVector"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="BFCVectorMessage" onclick="ToggleMessageVisibility('BFCVector'); return false;">
+          Show 1 additional messages
+        </a></td></tr><tr name="MessageRowClassBFCVector" style="display: none"><td class="IconInfoEncoded"><a name="BFCVectorMessage" /></td><td class="messageCell"><strong>BFCVector\BFCVector.vcproj:
+        </strong><span>Converting project file 'Y:\Sources\C++\Engines\BFC\BFC\BFCVector\BFCVector.vcproj'.</span></td></tr><tr style="display: none" name="MessageRowHeaderHideBFCVector"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="BFCVectorMessage" onclick="ToggleMessageVisibility('BFCVector'); return false;">
+          Hide 1 additional messages
+        </a></td></tr></table><a name="Solution" /><h3 _locID="ProjectDisplayNameHeader">Solution</h3><table><tr id="SolutionHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr name="WarningRowClassSolution"><td class="IconWarningEncoded"><a name="SolutionWarning" /></td><td class="messageCell"><strong>BFCHome.sln:
+        </strong><span>Visual Studio needs to make non-functional changes to this project in order to enable the project to open in released versions of Visual Studio newer than Visual Studio 2010 SP1 without impacting project behavior.</span></td></tr><tr name="MessageRowHeaderShowSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          Show 2 additional messages
+        </a></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>BFCHome.sln:
+        </strong><span>File successfully backed up as Y:\Sources\C++\Engines\BFC\BFC\Backup\BFCHome.sln</span></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>BFCHome.sln:
+        </strong><span>Solution migrated successfully</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          Hide 2 additional messages
+        </a></td></tr></table><a name="Solution Items" /><h3>Solution Items</h3><table><tr id="Solution ItemsHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">Message</th></tr><tr><td class="IconInfoEncoded" /><td class="messageCell" _locID="NoMessagesRow">Solution Items logged no messages.
+                  </td></tr></table></div></div></body></html>

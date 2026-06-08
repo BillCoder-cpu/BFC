@@ -1,0 +1,85 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFC
+#
+#  Copyright (C) 2004 by William P. Foster, all rights reserved
+#
+
+VER=1
+srcdir=src
+#LIBINSTALL=/usr/local/lib
+LIBINSTALL=$(HOME)/Libraries/Unix
+LIBOUT = $(HOME)/Libraries/Unix
+FOXDIR=/usr/include/fox-1.6
+DJVU_DIR=../../../../../Libraries/djvulibre-current
+includes=-I$(srcdir) -I../include -I$(FOXDIR) -I$(DJVU_DIR)/libdjvu
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = -I$(srcdir) -I$(includes) -fPIC -fpermissive $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+build : create debug
+
+all: check_headers create debug release
+
+rebuild: clean all
+
+backup:
+	programmer -b .
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	programmer -mp $(srcdir)
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFCImage_d.so.$(VER)
+	rm -f $(LIBOUT)/BFCImage.so.$(VER)
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+debug : $(ALL_DEBUG_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCImage_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCImage_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(ALL_RELEASE_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCImage.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCImage.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFCImage.so.$(VER) $(LIBINSTALL)/BFCImage.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCImage.so
+	link $(LIBINSTALL)/BFCImage.so.$(VER) $(LIBINSTALL)/BFCImage.so
+
+installd: debug
+	cp $(LIBOUT)/BFCImage_d.so.$(VER) $(LIBINSTALL)/BFCImage_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCImage_d.so
+	link $(LIBINSTALL)/BFCImage_d.so.$(VER) $(LIBINSTALL)/BFCImage_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCImage_d.so
+	rm -f $(LIBINSTALL)/BFCImage_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCImage.so
+	rm -f $(LIBINSTALL)/BFCImage.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCImage.h > junk
+
+
+

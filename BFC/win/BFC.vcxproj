@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{2C2F3C1F-3394-77A6-592A-931E9B6C0647}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>make debug</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(HOME)\Sources\C++\Engines\BFC\include</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>make release</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>$(HOME)\Sources\C++\Engines\BFC\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Bfc_DebugStatic.cpp" />
+    <ClCompile Include="..\src\CBfc_2dRect.cpp" />
+    <ClCompile Include="..\src\CBfc_2dSize.cpp" />
+    <ClCompile Include="..\src\CBfc_Angle.cpp" />
+    <ClCompile Include="..\src\CBfc_Array.cpp" />
+    <ClCompile Include="..\src\CBfc_CompressionAlgorythm.cpp" />
+    <ClCompile Include="..\src\CBfc_Distance.cpp" />
+    <ClCompile Include="..\src\CBfc_DynamicLink.cpp" />
+    <ClCompile Include="..\src\CBfc_Exception.cpp" />
+    <ClCompile Include="..\src\CBfc_File.cpp" />
+    <ClCompile Include="..\src\CBfc_Filename.cpp" />
+    <ClCompile Include="..\src\CBfc_LinkedList.cpp" />
+    <ClCompile Include="..\src\CBfc_MatrixDoubles.cpp" />
+    <ClCompile Include="..\src\CBfc_PointSpace3d.cpp" />
+    <ClCompile Include="..\src\CBfc_PointSpaceTime.cpp" />
+    <ClCompile Include="..\src\CBfc_PointTime.cpp" />
+    <ClCompile Include="..\src\CBfc_Range2d.cpp" />
+    <ClCompile Include="..\src\CBfc_ReferencedAllocation.cpp" />
+    <ClCompile Include="..\src\CBfc_ReferencedObject.cpp" />
+    <ClCompile Include="..\src\CBfc_ReferencedPointer.cpp" />
+    <ClCompile Include="..\src\CBfc_Registry.cpp" />
+    <ClCompile Include="..\src\CBfc_Stream.cpp" />
+    <ClCompile Include="..\src\CBfc_StreamSource.cpp" />
+    <ClCompile Include="..\src\CBfc_StreamSource_File_Unix.inc.cpp" />
+    <ClCompile Include="..\src\CBfc_StreamSource_File_Windows.inc.cpp" />
+    <ClCompile Include="..\src\CBfc_String.cpp" />
+    <ClCompile Include="..\src\CBfc_String8.cpp" />
+    <ClCompile Include="..\src\CBfc_Value.cpp" />
+    <ClCompile Include="..\src\character.cpp" />
+    <ClCompile Include="..\src\Rect2dU.cpp" />
+    <ClCompile Include="..\src\Size2dU.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\BFC\BFC.h" />
+    <ClInclude Include="..\include\BFC\BFCData.h" />
+    <ClInclude Include="..\include\BFC\BFCGUI.h" />
+    <ClInclude Include="..\include\BFC\BFCImage.h" />
+    <ClInclude Include="..\include\BFC\BFCLocal.h" />
+    <ClInclude Include="..\include\BFC\BFCOS.h" />
+    <ClInclude Include="..\include\BFC\BFCRIP.h" />
+    <ClInclude Include="..\include\BFC\BFCScript.h" />
+    <ClInclude Include="..\include\BFC\BFCUtil.h" />
+    <ClInclude Include="..\include\BFC\BFCVector.h" />
+    <ClInclude Include="..\include\BFC\Gears.h" />
+    <ClInclude Include="..\src\Array2d.h" />
+    <ClInclude Include="..\src\BFCDefs.h" />
+    <ClInclude Include="..\src\BFCDefs_KeyDefs.h" />
+    <ClInclude Include="..\src\BFCTypes.h" />
+    <ClInclude Include="..\src\BFCUnDefs.h" />
+    <ClInclude Include="..\src\Bfc_DebugStatic.h" />
+    <ClInclude Include="..\src\bfc_unix.h" />
+    <ClInclude Include="..\src\bfc_windows.h" />
+    <ClInclude Include="..\src\CBfc_2dRect.h" />
+    <ClInclude Include="..\src\CBfc_2dShape.h" />
+    <ClInclude Include="..\src\CBfc_2dSize.h" />
+    <ClInclude Include="..\src\CBfc_Angle.h" />
+    <ClInclude Include="..\src\CBfc_Array.h" />
+    <ClInclude Include="..\src\CBfc_CompressionAlgorythm.h" />
+    <ClInclude Include="..\src\CBfc_Distance.h" />
+    <ClInclude Include="..\src\CBfc_DynamicLink.h" />
+    <ClInclude Include="..\src\CBfc_Exception.h" />
+    <ClInclude Include="..\src\CBfc_File.h" />
+    <ClInclude Include="..\src\CBfc_Filename.h" />
+    <ClInclude Include="..\src\CBfc_LinkedList.h" />
+    <ClInclude Include="..\src\CBfc_Map2d.h" />
+    <ClInclude Include="..\src\CBfc_Matrix.h" />
+    <ClInclude Include="..\src\CBfc_Object.h" />
+    <ClInclude Include="..\src\CBfc_PointSpace3d.h" />
+    <ClInclude Include="..\src\CBfc_PointSpaceTime.h" />
+    <ClInclude Include="..\src\CBfc_PointTime.h" />
+    <ClInclude Include="..\src\CBfc_Range2d.h" />
+    <ClInclude Include="..\src\CBfc_ReferencedAllocation.h" />
+    <ClInclude Include="..\src\CBfc_ReferencedObject.h" />
+    <ClInclude Include="..\src\CBfc_ReferencedPointer.h" />
+    <ClInclude Include="..\src\CBfc_ReferencedValue.h" />
+    <ClInclude Include="..\src\CBfc_Registry.h" />
+    <ClInclude Include="..\src\CBfc_Stream.h" />
+    <ClInclude Include="..\src\CBfc_StreamSource.h" />
+    <ClInclude Include="..\src\CBfc_String.h" />
+    <ClInclude Include="..\src\CBfc_Tree.h" />
+    <ClInclude Include="..\src\CBfc_Value.h" />
+    <ClInclude Include="..\src\character.h" />
+    <ClInclude Include="..\src\speedfloat.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\MinGW\MakefileBase.mingw" />
+    <None Include="Makefile" />
+    <None Include="MakefileBase.win" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

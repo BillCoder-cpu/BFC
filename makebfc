@@ -1,0 +1,90 @@
+
+#!/bin/bash
+#
+# Name: makebfc.sh
+#
+# Purpose:
+#	Make the complete BFC set of libraries using make.
+#
+# Notes:
+#
+# Return codes:
+#  0 = All commands were successful
+#  1 = At least one command failed, see the output file
+#      and search for the keyword "ERROR".
+#
+########################################################
+
+
+echo .
+echo Making BFC...
+cd BFC
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCLocal...
+cd BFCLocal
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCData...
+cd BFCData
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCScript...
+cd BFCScript
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCUtil...
+cd BFCUtil
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCVector...
+cd BFCVector
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCGui...
+cd BFCGUI
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making Gears...
+cd Gears
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCOS...
+cd BFCOS
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCImage...
+cd BFCImage
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+
+

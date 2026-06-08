@@ -1,0 +1,11 @@
+# KDevelop Custom Project File List
+MakefileBase
+src/CBfcData_Archive.cpp
+src/CBfcData_Archive.h
+src/CBfcData_Archive_Field.cpp
+src/CBfcData_Archive_Field.h
+src/CBfcData_Archive_Record.cpp
+src/CBfcData_Archive_Record.h
+src/CBfcData_Archive_Table.h
+src/CBfcData_FileFolder.h
+src/CBfcData_Object.h

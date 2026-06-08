@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{BB3F9706-2512-DC68-0F20-12E272DF7AF6}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>make debug</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>..\..\..\..\Third-Party\fox-current\include;C:\Users\Bill\Exile\QuickGUI\QuickGUI\include;..\..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>make release</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>C:\Users\Bill\Exile\QuickGUI\QuickGUI\include;C:\Users\Bill\Sources\C++\Engines\BFC\include;..\..\..\Third-Party\fox-current\include;$(IncludePath);$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CBfcGUI.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_Brush.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_CursesWindow.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_DialogWindow.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_EditInterface.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_FoxLayer.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_ListControl.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_MenuWindow.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_MessageBox.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_QuickGUILayer.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_Resource.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_ResourceEntity.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_ResourceStore.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_ScriptResource.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_TerminalWindow.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_Toolbar.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_Window.cpp" />
+    <ClCompile Include="..\src\CBfcGUI_WxLayer.cpp" />
+    <ClCompile Include="..\src\CFoxBFCWindow.cpp" />
+    <ClCompile Include="..\src\CQuickGUIBFCWindow.cpp" />
+    <ClCompile Include="..\src\CWxBFCWindow.cpp" />
+    <ClCompile Include="..\src\DP_Intermediate.inc.cpp" />
+    <ClCompile Include="..\src\DX.temp.inc.cpp" />
+    <ClCompile Include="..\src\DX_Intermediate.inc.cpp" />
+    <ClCompile Include="..\src\ImageWindow.cpp" />
+    <ClCompile Include="..\src\ProgressControl.cpp" />
+    <ClCompile Include="..\src\ResourceWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\CBfcGUI.h" />
+    <ClInclude Include="..\src\CBfcGUI_Brush.h" />
+    <ClInclude Include="..\src\CBfcGUI_CursesWindow.h" />
+    <ClInclude Include="..\src\CBfcGUI_DialogWindow.h" />
+    <ClInclude Include="..\src\CBfcGUI_EditInterface.h" />
+    <ClInclude Include="..\src\CBfcGUI_FoxLayer.h" />
+    <ClInclude Include="..\src\CBfcGUI_GLWindow.h" />
+    <ClInclude Include="..\src\CBfcGUI_ListControl.h" />
+    <ClInclude Include="..\src\CBfcGUI_MenuWindow.h" />
+    <ClInclude Include="..\src\CBfcGUI_Message.h" />
+    <ClInclude Include="..\src\CBfcGUI_MessageBox.h" />
+    <ClInclude Include="..\src\CBfcGUI_Object.h" />
+    <ClInclude Include="..\src\CBfcGUI_QuickGUILayer.h" />
+    <ClInclude Include="..\src\CBfcGUI_Resource.h" />
+    <ClInclude Include="..\src\CBfcGUI_ResourceEntity.h" />
+    <ClInclude Include="..\src\CBfcGUI_ResourceStore.h" />
+    <ClInclude Include="..\src\CBfcGUI_ScriptResource.h" />
+    <ClInclude Include="..\src\CBfcGUI_TerminalWindow.h" />
+    <ClInclude Include="..\src\CBfcGUI_Toolbar.h" />
+    <ClInclude Include="..\src\CBfcGUI_TreeControl.h" />
+    <ClInclude Include="..\src\CBfcGUI_Window.h" />
+    <ClInclude Include="..\src\CBfcGUI_WxLayer.h" />
+    <ClInclude Include="..\src\CFoxBFCWindow.h" />
+    <ClInclude Include="..\src\CQuickGUIBFCWindow.h" />
+    <ClInclude Include="..\src\CWxBFCWindow.h" />
+    <ClInclude Include="..\src\ImageWindow.h" />
+    <ClInclude Include="..\src\ProgressControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\mingw\MakefileBase.mingw" />
+    <None Include="Makefile" />
+    <None Include="MakefileBase.win" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

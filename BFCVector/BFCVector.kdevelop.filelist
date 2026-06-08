@@ -1,0 +1,16 @@
+# KDevelop Custom Project File List
+MakefileBase
+src/CBfcVector_2dPlane.h
+src/CBfcVector_2dTransform.h
+src/CBfcVector_3dTransform.h
+src/CBfcVector_Coordinates.h
+src/CBfcVector_Shape2d.cpp
+src/CBfcVector_Shape2d.h
+src/CBfcVector_Shape2d_Bezier.cpp
+src/CBfcVector_Shape2d_Bezier.h
+src/CBfcVector_Shape2d_Rect.cpp
+src/CBfcVector_Shape2d_Rect.h
+src/CBfcVector_Shape3d.cpp
+src/CBfcVector_Shape3d.h
+src/CBfcVector_SpaceVector.cpp
+src/CBfcVector_SpaceVector.h

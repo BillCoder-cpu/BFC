@@ -1,0 +1,48 @@
+
+#!/bin/bash
+#
+# Name: makescript.sh
+#
+# Purpose:
+#	Make a partial BFC set of libraries using make.
+#
+# Notes:
+#
+# Return codes:
+#  0 = All commands were successful
+#  1 = At least one command failed, see the output file
+#      and search for the keyword "ERROR".
+#
+########################################################
+
+
+echo .
+echo Making BFCScript...
+cd BFCScript
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCGui...
+cd BFCGUI
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCOS...
+cd BFCOS
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+echo .
+echo Making BFCImage...
+cd BFCImage
+make -k $1 2> err.out
+cat err.out | more
+cd ..
+
+
+

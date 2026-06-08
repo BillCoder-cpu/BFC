@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{1F872112-2202-D743-7E53-095120165674}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>make debug</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>\Sources\C++\Third-Party\fox-current\include;\Sources\C++\Engines\BFC\include;C:\Users\Bill\Downloads\jpeg-6b;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>make release</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>C:\Users\bill\Third-Party\fox-current\include;C:\Users\Bill\Sources\C++\Engines\BFC\include;C:\Users\Bill\Downloads\jpeg-6b;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BitmapPipe.cpp" />
+    <ClCompile Include="..\src\Bitmap_Alpha.cpp" />
+    <ClCompile Include="..\src\CBfcImage.cpp" />
+    <ClCompile Include="..\src\CBfcImage_2dArrayPixel.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Bitmap.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Buffer.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Chunker.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Color.cpp" />
+    <ClCompile Include="..\src\CBfcImage_ColorSpace.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Format.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Format_BMP.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Format_DJVU.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Format_JPEG.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Format_JPEG2000.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Histogram.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Image_Store.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Pixels.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Resolution.cpp" />
+    <ClCompile Include="..\src\CBfcImage_ScriptImage.cpp" />
+    <ClCompile Include="..\src\CBfcImage_Segment.cpp" />
+    <ClCompile Include="..\src\CImgPipe.cpp" />
+    <ClCompile Include="..\src\Palette.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BitmapPipe.h" />
+    <ClInclude Include="..\src\CBfcImage.h" />
+    <ClInclude Include="..\src\CBfcImage_2dArrayPixel.h" />
+    <ClInclude Include="..\src\CBfcImage_Bitmap.h" />
+    <ClInclude Include="..\src\CBfcImage_Buffer.h" />
+    <ClInclude Include="..\src\CBfcImage_Chunker.h" />
+    <ClInclude Include="..\src\CBfcImage_Color.h" />
+    <ClInclude Include="..\src\CBfcImage_ColorSpace.h" />
+    <ClInclude Include="..\src\CBfcImage_Effect.h" />
+    <ClInclude Include="..\src\CBfcImage_Format.h" />
+    <ClInclude Include="..\src\CBfcImage_Format_BMP.h" />
+    <ClInclude Include="..\src\CBfcImage_Format_DJVU.h" />
+    <ClInclude Include="..\src\CBfcImage_Format_JPEG.h" />
+    <ClInclude Include="..\src\CBfcImage_Format_JPEG2000.h" />
+    <ClInclude Include="..\src\CBfcImage_Format_TIFF.h" />
+    <ClInclude Include="..\src\CBfcImage_Histogram.h" />
+    <ClInclude Include="..\src\CBfcImage_Image_Store.h" />
+    <ClInclude Include="..\src\CBfcImage_Info.h" />
+    <ClInclude Include="..\src\CBfcImage_Object.h" />
+    <ClInclude Include="..\src\CBfcImage_Pixels.h" />
+    <ClInclude Include="..\src\CBfcImage_Resolution.h" />
+    <ClInclude Include="..\src\CBfcImage_ScriptImage.h" />
+    <ClInclude Include="..\src\CBfcImage_Segment.h" />
+    <ClInclude Include="..\src\CBfcImage_Transform.h" />
+    <ClInclude Include="..\src\ddjvuapi.h" />
+    <ClInclude Include="..\src\FoxImage.h" />
+    <ClInclude Include="..\src\Palette.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MakefileBase.win" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

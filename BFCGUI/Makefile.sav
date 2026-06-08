@@ -1,0 +1,254 @@
+#
+# FreeBSD Makefile
+#
+#  This is the Makefile for BFCGUI
+#
+#  Copyright (C) 2004 by William P. Foster, all rights reserved
+#
+#
+#
+# Generated via Programmer, a programmer's utility.
+#
+
+ALL_H = CBfcGUI.h CBfcGUI_Brush.h CBfcGUI_CursesWindow.h CBfcGUI_DialogWindow.h  \
+		CBfcGUI_EditInterface.h CBfcGUI_FoxLayer.h CBfcGUI_GLWindow.h CBfcGUI_ListControl.h  \
+		CBfcGUI_MenuWindow.h CBfcGUI_Message.h CBfcGUI_MessageBox.h CBfcGUI_Object.h  \
+		CBfcGUI_Resource.h CBfcGUI_ResourceEntity.h CBfcGUI_ResourceStore.h CBfcGUI_ScriptResource.h  \
+		CBfcGUI_TerminalWindow.h CBfcGUI_Toolbar.h CBfcGUI_TreeControl.h CBfcGUI_Window.h  \
+		CBfcGUI_WxLayer.h CFoxBFCWindow.h CWxBFCWindow.h ImageWindow.h  \
+		ProgressControl.h  
+
+ALL_CPP = src/CBfcGUI.cpp src/CBfcGUI_Brush.cpp src/CBfcGUI_CursesWindow.cpp src/CBfcGUI_DialogWindow.cpp  \
+		src/CBfcGUI_EditInterface.cpp src/CBfcGUI_FoxLayer.cpp src/CBfcGUI_ListControl.cpp src/CBfcGUI_MenuWindow.cpp  \
+		src/CBfcGUI_MessageBox.cpp src/CBfcGUI_Resource.cpp src/CBfcGUI_ResourceEntity.cpp src/CBfcGUI_ResourceStore.cpp  \
+		src/CBfcGUI_ScriptResource.cpp src/CBfcGUI_TerminalWindow.cpp src/CBfcGUI_Toolbar.cpp src/CBfcGUI_Window.cpp  \
+		src/CBfcGUI_WxLayer.cpp src/CFoxBFCWindow.cpp src/CWxBFCWindow.cpp src/ImageWindow.cpp  \
+		src/ProgressControl.cpp src/ResourceWindow.cpp  
+
+ALL_OBJ = src/CBfcGUI.o src/CBfcGUI_Brush.o src/CBfcGUI_CursesWindow.o src/CBfcGUI_DialogWindow.o  \
+		src/CBfcGUI_EditInterface.o src/CBfcGUI_FoxLayer.o src/CBfcGUI_ListControl.o src/CBfcGUI_MenuWindow.o  \
+		src/CBfcGUI_MessageBox.o src/CBfcGUI_Resource.o src/CBfcGUI_ResourceEntity.o src/CBfcGUI_ResourceStore.o  \
+		src/CBfcGUI_ScriptResource.o src/CBfcGUI_TerminalWindow.o src/CBfcGUI_Toolbar.o src/CBfcGUI_Window.o  \
+		src/CBfcGUI_WxLayer.o src/CFoxBFCWindow.o src/CWxBFCWindow.o src/ImageWindow.o  \
+		src/ProgressControl.o src/ResourceWindow.o  
+
+ALL_DEBUG_CPP = Debug/CBfcGUI.cpp Debug/CBfcGUI_Brush.cpp Debug/CBfcGUI_CursesWindow.cpp Debug/CBfcGUI_DialogWindow.cpp  \
+		Debug/CBfcGUI_EditInterface.cpp Debug/CBfcGUI_FoxLayer.cpp Debug/CBfcGUI_ListControl.cpp Debug/CBfcGUI_MenuWindow.cpp  \
+		Debug/CBfcGUI_MessageBox.cpp Debug/CBfcGUI_Resource.cpp Debug/CBfcGUI_ResourceEntity.cpp Debug/CBfcGUI_ResourceStore.cpp  \
+		Debug/CBfcGUI_ScriptResource.cpp Debug/CBfcGUI_TerminalWindow.cpp Debug/CBfcGUI_Toolbar.cpp Debug/CBfcGUI_Window.cpp  \
+		Debug/CBfcGUI_WxLayer.cpp Debug/CFoxBFCWindow.cpp Debug/CWxBFCWindow.cpp Debug/ImageWindow.cpp  \
+		Debug/ProgressControl.cpp Debug/ResourceWindow.cpp  
+
+ALL_DEBUG_OBJ = Debug/CBfcGUI.o Debug/CBfcGUI_Brush.o Debug/CBfcGUI_CursesWindow.o Debug/CBfcGUI_DialogWindow.o  \
+		Debug/CBfcGUI_EditInterface.o Debug/CBfcGUI_FoxLayer.o Debug/CBfcGUI_ListControl.o Debug/CBfcGUI_MenuWindow.o  \
+		Debug/CBfcGUI_MessageBox.o Debug/CBfcGUI_Resource.o Debug/CBfcGUI_ResourceEntity.o Debug/CBfcGUI_ResourceStore.o  \
+		Debug/CBfcGUI_ScriptResource.o Debug/CBfcGUI_TerminalWindow.o Debug/CBfcGUI_Toolbar.o Debug/CBfcGUI_Window.o  \
+		Debug/CBfcGUI_WxLayer.o Debug/CFoxBFCWindow.o Debug/CWxBFCWindow.o Debug/ImageWindow.o  \
+		Debug/ProgressControl.o Debug/ResourceWindow.o  
+
+ALL_RELEASE_CPP = Release/CBfcGUI.cpp Release/CBfcGUI_Brush.cpp Release/CBfcGUI_CursesWindow.cpp Release/CBfcGUI_DialogWindow.cpp  \
+		Release/CBfcGUI_EditInterface.cpp Release/CBfcGUI_FoxLayer.cpp Release/CBfcGUI_ListControl.cpp Release/CBfcGUI_MenuWindow.cpp  \
+		Release/CBfcGUI_MessageBox.cpp Release/CBfcGUI_Resource.cpp Release/CBfcGUI_ResourceEntity.cpp Release/CBfcGUI_ResourceStore.cpp  \
+		Release/CBfcGUI_ScriptResource.cpp Release/CBfcGUI_TerminalWindow.cpp Release/CBfcGUI_Toolbar.cpp Release/CBfcGUI_Window.cpp  \
+		Release/CBfcGUI_WxLayer.cpp Release/CFoxBFCWindow.cpp Release/CWxBFCWindow.cpp Release/ImageWindow.cpp  \
+		Release/ProgressControl.cpp Release/ResourceWindow.cpp  
+
+ALL_RELEASE_OBJ = Release/CBfcGUI.o Release/CBfcGUI_Brush.o Release/CBfcGUI_CursesWindow.o Release/CBfcGUI_DialogWindow.o  \
+		Release/CBfcGUI_EditInterface.o Release/CBfcGUI_FoxLayer.o Release/CBfcGUI_ListControl.o Release/CBfcGUI_MenuWindow.o  \
+		Release/CBfcGUI_MessageBox.o Release/CBfcGUI_Resource.o Release/CBfcGUI_ResourceEntity.o Release/CBfcGUI_ResourceStore.o  \
+		Release/CBfcGUI_ScriptResource.o Release/CBfcGUI_TerminalWindow.o Release/CBfcGUI_Toolbar.o Release/CBfcGUI_Window.o  \
+		Release/CBfcGUI_WxLayer.o Release/CFoxBFCWindow.o Release/CWxBFCWindow.o Release/ImageWindow.o  \
+		Release/ProgressControl.o Release/ResourceWindow.o  
+
+VER=1
+srcdir=src
+LIBINSTALL=/lib
+
+LIBOUT = /home/bill/Libraries/Unix
+FOXDIR=../../../../../Libraries/fox-current
+includes=-I$(srcdir) -I../include -I$(FOXDIR)/include
+DEFS = -D UNIX
+LIBS = $(LIBOUT)/BFCGUI.so
+
+CCPP = c++
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) $(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+all: create debug release
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	header -mp $(srcdir)
+
+clean :
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFCGUI_d.so.1
+	rm -f $(LIBOUT)/BFCGUI_d.so.1
+
+BFCGUI : $(ALL_OBJ)
+	g++ -shared -Wl,-soname,$(LIBOUT)/BFCGUI.so.1 -o $(LIBOUT)/BFCGUI.so.1 $(ALL_OBJ)
+
+debug: $(ALL_DEBUG_OBJ)
+	g++ -shared -Wl,-soname,$(LIBOUT)/BFCGUI_d.so.$(VER) -o $(LIBOUT)/BFCGUI_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCGUI_d.lib $(ALL_DEBUG_OBJ)
+
+release: $(ALL_RELEASE_OBJ)
+	g++ -shared -Wl,-soname,$(LIBOUT)/BFCGUI.so.$(VER) -o $(LIBOUT)/BFCGUI.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCGUI.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFCGUI.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCGUI.so
+	link $(LIBINSTALL)/BFCGUI.so.$(VER) $(LIBINSTALL)/BFCGUI.so
+
+installd: debug
+	cp $(LIBOUT)/BFCGUI_d.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCGUI_d.so
+	link $(LIBINSTALL)/BFCGUI_d.so.$(VER) $(LIBINSTALL)/BFCGUI_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCGUI_d.so
+	rm -f $(LIBINSTALL)/BFCGUI_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCGUI.so
+	rm -f $(LIBINSTALL)/BFCGUI.so.$(VER)
+
+
+
+
+Debug/CBfcGUI.o : src/CBfcGUI.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI.o src/CBfcGUI.cpp
+
+Release/CBfcGUI.o : src/CBfcGUI.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI.o src/CBfcGUI.cpp
+
+Debug/CBfcGUI_Brush.o : src/CBfcGUI_Brush.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_Brush.o src/CBfcGUI_Brush.cpp
+
+Release/CBfcGUI_Brush.o : src/CBfcGUI_Brush.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_Brush.o src/CBfcGUI_Brush.cpp
+
+Debug/CBfcGUI_CursesWindow.o : src/CBfcGUI_CursesWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_CursesWindow.o src/CBfcGUI_CursesWindow.cpp
+
+Release/CBfcGUI_CursesWindow.o : src/CBfcGUI_CursesWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_CursesWindow.o src/CBfcGUI_CursesWindow.cpp
+
+Debug/CBfcGUI_DialogWindow.o : src/CBfcGUI_DialogWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_DialogWindow.o src/CBfcGUI_DialogWindow.cpp
+
+Release/CBfcGUI_DialogWindow.o : src/CBfcGUI_DialogWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_DialogWindow.o src/CBfcGUI_DialogWindow.cpp
+
+Debug/CBfcGUI_EditInterface.o : src/CBfcGUI_EditInterface.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_EditInterface.o src/CBfcGUI_EditInterface.cpp
+
+Release/CBfcGUI_EditInterface.o : src/CBfcGUI_EditInterface.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_EditInterface.o src/CBfcGUI_EditInterface.cpp
+
+Debug/CBfcGUI_FoxLayer.o : src/CBfcGUI_FoxLayer.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_FoxLayer.o src/CBfcGUI_FoxLayer.cpp
+
+Release/CBfcGUI_FoxLayer.o : src/CBfcGUI_FoxLayer.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_FoxLayer.o src/CBfcGUI_FoxLayer.cpp
+
+Debug/CBfcGUI_ListControl.o : src/CBfcGUI_ListControl.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_ListControl.o src/CBfcGUI_ListControl.cpp
+
+Release/CBfcGUI_ListControl.o : src/CBfcGUI_ListControl.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_ListControl.o src/CBfcGUI_ListControl.cpp
+
+Debug/CBfcGUI_MenuWindow.o : src/CBfcGUI_MenuWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_MenuWindow.o src/CBfcGUI_MenuWindow.cpp
+
+Release/CBfcGUI_MenuWindow.o : src/CBfcGUI_MenuWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_MenuWindow.o src/CBfcGUI_MenuWindow.cpp
+
+Debug/CBfcGUI_MessageBox.o : src/CBfcGUI_MessageBox.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_MessageBox.o src/CBfcGUI_MessageBox.cpp
+
+Release/CBfcGUI_MessageBox.o : src/CBfcGUI_MessageBox.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_MessageBox.o src/CBfcGUI_MessageBox.cpp
+
+Debug/CBfcGUI_Resource.o : src/CBfcGUI_Resource.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_Resource.o src/CBfcGUI_Resource.cpp
+
+Release/CBfcGUI_Resource.o : src/CBfcGUI_Resource.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_Resource.o src/CBfcGUI_Resource.cpp
+
+Debug/CBfcGUI_ResourceEntity.o : src/CBfcGUI_ResourceEntity.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_ResourceEntity.o src/CBfcGUI_ResourceEntity.cpp
+
+Release/CBfcGUI_ResourceEntity.o : src/CBfcGUI_ResourceEntity.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_ResourceEntity.o src/CBfcGUI_ResourceEntity.cpp
+
+Debug/CBfcGUI_ResourceStore.o : src/CBfcGUI_ResourceStore.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_ResourceStore.o src/CBfcGUI_ResourceStore.cpp
+
+Release/CBfcGUI_ResourceStore.o : src/CBfcGUI_ResourceStore.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_ResourceStore.o src/CBfcGUI_ResourceStore.cpp
+
+Debug/CBfcGUI_ScriptResource.o : src/CBfcGUI_ScriptResource.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_ScriptResource.o src/CBfcGUI_ScriptResource.cpp
+
+Release/CBfcGUI_ScriptResource.o : src/CBfcGUI_ScriptResource.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_ScriptResource.o src/CBfcGUI_ScriptResource.cpp
+
+Debug/CBfcGUI_TerminalWindow.o : src/CBfcGUI_TerminalWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_TerminalWindow.o src/CBfcGUI_TerminalWindow.cpp
+
+Release/CBfcGUI_TerminalWindow.o : src/CBfcGUI_TerminalWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_TerminalWindow.o src/CBfcGUI_TerminalWindow.cpp
+
+Debug/CBfcGUI_Toolbar.o : src/CBfcGUI_Toolbar.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_Toolbar.o src/CBfcGUI_Toolbar.cpp
+
+Release/CBfcGUI_Toolbar.o : src/CBfcGUI_Toolbar.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_Toolbar.o src/CBfcGUI_Toolbar.cpp
+
+Debug/CBfcGUI_Window.o : src/CBfcGUI_Window.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_Window.o src/CBfcGUI_Window.cpp
+
+Release/CBfcGUI_Window.o : src/CBfcGUI_Window.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_Window.o src/CBfcGUI_Window.cpp
+
+Debug/CBfcGUI_WxLayer.o : src/CBfcGUI_WxLayer.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CBfcGUI_WxLayer.o src/CBfcGUI_WxLayer.cpp
+
+Release/CBfcGUI_WxLayer.o : src/CBfcGUI_WxLayer.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CBfcGUI_WxLayer.o src/CBfcGUI_WxLayer.cpp
+
+Debug/CFoxBFCWindow.o : src/CFoxBFCWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CFoxBFCWindow.o src/CFoxBFCWindow.cpp
+
+Release/CFoxBFCWindow.o : src/CFoxBFCWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CFoxBFCWindow.o src/CFoxBFCWindow.cpp
+
+Debug/CWxBFCWindow.o : src/CWxBFCWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/CWxBFCWindow.o src/CWxBFCWindow.cpp
+
+Release/CWxBFCWindow.o : src/CWxBFCWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/CWxBFCWindow.o src/CWxBFCWindow.cpp
+
+Debug/ImageWindow.o : src/ImageWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/ImageWindow.o src/ImageWindow.cpp
+
+Release/ImageWindow.o : src/ImageWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/ImageWindow.o src/ImageWindow.cpp
+
+Debug/ProgressControl.o : src/ProgressControl.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/ProgressControl.o src/ProgressControl.cpp
+
+Release/ProgressControl.o : src/ProgressControl.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/ProgressControl.o src/ProgressControl.cpp
+
+Debug/ResourceWindow.o : src/ResourceWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) -o Debug/ResourceWindow.o src/ResourceWindow.cpp
+
+Release/ResourceWindow.o : src/ResourceWindow.cpp 
+		$(CCPP) -c $(CPPFLAGS) -o Release/ResourceWindow.o src/ResourceWindow.cpp

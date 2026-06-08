@@ -1,0 +1,88 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFCOS
+#
+#
+#
+#LIBINSTALL=/usr/local/lib
+
+VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
+SRCDIR=\Users\Bill\Sources
+BFCINC=$(SRCDIR)\C++\Engines\BFC\include
+BFCDIR=$(SRCDIR)\C++\Engines\BFC
+CSDIR=$(SRCDIR)\cs
+
+VER=1
+LIBINSTALL=/lib
+LIBOUT = C:\Users\Bill\Libraries
+FOXDIR=C:\USers\Bill\Downloads\fox-current
+srcdir=src
+includes=-I$(srcdir) -I../include  -I$(FOXDIR)/include
+DEFS = -D WIN32 -D STATICLIB
+LIBS = $(LIBOUT)/BFC.so
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+# INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) $(CDEBUG) $(includes) $(DEFS)
+
+LINKER = lib
+#LINKEROPTIONS = -r
+
+
+build : create debug
+
+all : create check_headers debug release
+
+# CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+
+backup:
+	programmer -b .
+
+create:
+	rem mkdir -p Debug
+	rem mkdir -p Release
+	programmer -mpw $(srcdir)
+
+debug : $(LIBOUT)\BFCOS_d.lib
+
+$(LIBOUT)\BFCOS_d.lib: $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)\BFCOS_d.lib $(ALL_DEBUG_OBJ)
+# 	$(CXXLINK) -rpath $(libdir) $(libFOX_1_4_la_LDFLAGS) $(libFOX_1_4_la_OBJECTS) $(libFOX_1_4_la_LIBADD) $(LIBS)
+
+release : $(LIBOUT)/BFCOS.lib
+
+$(LIBOUT)/BFCOS.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFCOS.lib $(ALL_RELEASE_OBJ)
+
+convert : 
+	   skipper -i $(BFCINC);$(VCINC) $(DEFS) -s $(BFCDIR)\BFCOS\src -d $(CSDIR)\Engines\ElOS\src "*.cpp"
+
+install : installd release
+	cp $(LIBOUT)/BFCOS.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCOS.so
+	link $(LIBINSTALL)/BFCOS.so.$(VER) $(LIBINSTALL)/BFCOS.so
+
+installd: debug
+	cp $(LIBOUT)/BFCOS_d.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCOS_d.so
+	link $(LIBINSTALL)/BFCOS_d.so.$(VER) $(LIBINSTALL)/BFCOS_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCOS.so
+	rm -f $(LIBINSTALL)/BFCOS.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCOS_d.so
+	rm -f $(LIBINSTALL)/BFCOS_d.so.$(VER)
+
+clean:
+	programmer -c
+	del $(LIBOUT)\BFCOS.lib
+	del $(LIBOUT)\BFCOS_d.lib
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCOS.h > junk
+
+
+
+

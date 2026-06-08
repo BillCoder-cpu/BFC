@@ -1,0 +1,85 @@
+#
+# WINDOWS Makefile
+#
+#  This is the Windows Makefile for BFCGUI
+#
+#  Copyright (C) 2004-2008 by William P. Foster, all rights reserved
+#
+#
+SHELL=C:/Windows/System32/cmd.exe
+VER=1
+srcdir=..\src
+LIBINSTALL = \Users\Bill\Libraries
+LIBOUT=.
+
+SRCDIR=\Users\Bill\Sources
+BFCINC=$(SRCDIR)\C++\Engines\BFC\include
+BFCDIR=$(SRCDIR)\C++\Engines\BFC
+CSDIR=$(SRCDIR)\cs
+
+# FOXDIR=\Users\Bill\Third-Party\fox-current
+QUICKGUIDIR=../../../../../Exile/QuickGUI/QuickGUI/include
+includes=-I$(srcdir) -I..\..\include -I$(QUICKGUIDIR)
+# -I$(FOXDIR)\include
+DEFS = -D WIN32 -D BFC_STATICLIB
+LIBS = $(LIBOUT)\BFCGUI.lib
+
+CCPP = gcc
+CPPDEBUG = -g -O0 -D_DEBUG 
+#INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) $(includes) $(DEFS)
+
+LINKER = ar
+LINKEROPTIONS = rcs
+DLL_LINKER = g++ -shared
+DLL_LINKEROPTIONS = -o
+
+DEBUG_NAME=BFCGUI_mingw_d.a
+RELEASE_NAME=BFCGUI_mingw.a
+
+DEBUG_NAME_DLL=BFCGUI_mingw_d.dll
+RELEASE_NAME_DLL=BFCGUI_mingw.dll
+
+all: create debug release
+
+backup:
+	programmer -b .
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpg $(srcdir)
+
+clean: uninstall
+	programmer -c
+
+debug : $(LIBOUT)/$(DEBUG_NAME) $(LIBOUT)/$(DEBUG_NAME_DLL)
+
+$(LIBOUT)/$(DEBUG_NAME) : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME) $(ALL_DEBUG_OBJ)
+
+$(LIBOUT)/$(DEBUG_NAME_DLL) : $(ALL_DEBUG_OBJ)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(DEBUG_NAME_DLL) $(ALL_DEBUG_OBJ)
+	
+release : $(LIBOUT)/$(RELEASE_NAME) $(LIBOUT)/$(RELEASE_NAME_DLL)
+
+$(LIBOUT)/$(RELEASE_NAME) : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME) $(ALL_RELEASE_OBJ)
+
+$(LIBOUT)/$(RELEASE_NAME_DLL) : $(ALL_RELEASE_OBJ)
+	$(DLL_LINKER) $(DLL_LINKEROPTIONS) $(LIBOUT)/$(RELEASE_NAME_DLL) $(ALL_RELEASE_OBJ)
+
+install: installd release
+	copy $(LIBOUT)\$(RELEASE_NAME) $(LIBINSTALL)\$(RELEASE_NAME)
+	copy $(LIBOUT)\$(RELEASE_NAME_DLL) $(LIBINSTALL)\$(RELEASE_NAME_DLL)
+
+installd: debug
+	copy $(LIBOUT)\$(DEBUG_NAME) $(LIBINSTALL)\$(DEBUG_NAME)
+	copy $(LIBOUT)\$(DEBUG_NAME_DLL) $(LIBINSTALL)\$(DEBUG_NAME_DLL)
+
+uninstall:
+	del $(LIBINSTALL)\$(DEBUG_NAME)
+	del $(LIBINSTALL)\$(RELEASE_NAME)
+
+
+

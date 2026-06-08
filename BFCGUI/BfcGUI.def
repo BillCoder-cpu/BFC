@@ -1,0 +1,9 @@
+LIBRARY      "BFCGui"
+
+EXPORTS
+;    ===List your explicitly exported functions here===
+;	CFoxBFCWindow::metaClass
+	
+;FX::FXWindow::doesSaveUnder
+
+ ?doesSaveUnder@FXWindow@FX@@UBEEXZ

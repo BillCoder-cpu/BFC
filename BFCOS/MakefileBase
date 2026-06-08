@@ -1,0 +1,84 @@
+#
+# FreeBSD Makefile
+#
+#  This is the gcc Makefile for BFCOS
+#
+#
+#
+#LIBINSTALL=/usr/local/lib
+
+VER=1
+LIBINSTALL=/lib
+LIBOUT = $(HOME)/Libraries/Unix
+FOXDIR=/usr/include/fox-1.6
+srcdir=src
+includes=-I$(srcdir) -I../include  -I$(FOXDIR)
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+LIBS = $(LIBOUT)/BFC.so
+
+CCPP = gcc
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(CDEBUG) $(includes) -fPIC $(DEFS)
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+
+build : create debug
+
+all : create check_headers debug release
+
+# CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+
+backup:
+	programmer -b .
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	programmer -mp $(srcdir)
+
+debug : $(ALL_DEBUG_OBJ)
+	$(CCPP) -shared -o $(LIBOUT)/BFCOS_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCOS_d.lib $(ALL_DEBUG_OBJ)
+# 	$(CXXLINK) -rpath $(libdir) $(libFOX_1_4_la_LDFLAGS) $(libFOX_1_4_la_OBJECTS) $(libFOX_1_4_la_LIBADD) $(LIBS)
+
+release : $(ALL_RELEASE_OBJ)
+	$(CCPP) -shared -o $(LIBOUT)/BFCOS.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCOS.lib $(ALL_RELEASE_OBJ)
+
+install : installd release
+	cp $(LIBOUT)/BFCOS.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCOS.so
+	link $(LIBINSTALL)/BFCOS.so.$(VER) $(LIBINSTALL)/BFCOS.so
+
+installd: debug
+	cp $(LIBOUT)/BFCOS_d.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCOS_d.so
+	link $(LIBINSTALL)/BFCOS_d.so.$(VER) $(LIBINSTALL)/BFCOS_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCOS.so
+	rm -f $(LIBINSTALL)/BFCOS.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCOS_d.so
+	rm -f $(LIBINSTALL)/BFCOS_d.so.$(VER)
+
+clean:
+	rm -f Debug/*.*
+	rm -f Release/*.*
+	rm -f $(LIBOUT)/BFCOS.so.$(VER)
+	rm -f $(LIBOUT)/BFCOS_d.so.$(VER)
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFCOS.h > junk
+
+
+
+

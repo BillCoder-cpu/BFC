@@ -1,0 +1,81 @@
+#
+# FreeBSD Makefile
+#
+#  This is the Makefile for BFCGUI
+#
+#  Copyright (C) 2004-2008 by William P. Foster, all rights reserved
+#
+#
+
+VER=1
+srcdir=src
+LIBINSTALL=/lib
+
+LIBOUT = $(HOME)/Libraries/Unix
+FOXDIR=/usr/include/fox-1.6
+# QUICKGUIDIR=../../../../../Exile/QuickGUI/QuickGUI/include
+includes=-I$(srcdir) -I../include -I$(FOXDIR)
+
+WINDEFS = -D _WIN32
+LINUXDEFS = -D UNIX
+ifeq ($(OS),Windows_NT)
+	DEFS=$(WINDEFS)
+else
+	DEFS=$(LINUXDEFS)
+endif
+
+LIBS = $(LIBOUT)/BFCGUI.so
+
+CCPP = g++
+CPPDEBUG = -g -D _DEBUG
+INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(includes) -fPIC $(DEFS) -fpermissive
+
+LINKER = ld
+LINKEROPTIONS = -r
+
+all: create debug release
+
+backup:
+	programmer -b .
+
+create:
+	mkdir -p Debug
+	mkdir -p Release
+	programmer -mp $(srcdir)
+
+clean:
+	rm -f Debug/*.o
+	rm -f Release/*.o
+	rm -f $(LIBOUT)/BFCGUI_d.so.1
+	rm -f $(LIBOUT)/BFCGUI_d.so.1
+
+BFCGUI : $(ALL_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCGUI.so.1 $(ALL_OBJ)
+
+debug: $(ALL_DEBUG_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCGUI_d.so.$(VER) $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCGUI_d.lib $(ALL_DEBUG_OBJ)
+
+release: $(ALL_RELEASE_OBJ)
+	g++ -shared -o $(LIBOUT)/BFCGUI.so.$(VER) $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) -o $(LIBOUT)/BFCGUI.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	cp $(LIBOUT)/BFCGUI.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCGUI.so
+	link $(LIBINSTALL)/BFCGUI.so.$(VER) $(LIBINSTALL)/BFCGUI.so
+
+installd: debug
+	cp $(LIBOUT)/BFCGUI_d.so.$(VER) $(LIBINSTALL)
+	rm -f $(LIBINSTALL)/BFCGUI_d.so
+	link $(LIBINSTALL)/BFCGUI_d.so.$(VER) $(LIBINSTALL)/BFCGUI_d.so
+
+uninstall:
+	rm -f $(LIBINSTALL)/BFCGUI_d.so
+	rm -f $(LIBINSTALL)/BFCGUI_d.so.$(VER)
+	rm -f $(LIBINSTALL)/BFCGUI.so
+	rm -f $(LIBINSTALL)/BFCGUI.so.$(VER)
+
+
+

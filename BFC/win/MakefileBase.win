@@ -1,0 +1,90 @@
+#
+# WINDOWS Makefile
+#
+#  This is the Visual Studio Makefile for BFC
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# Copyright (C) 2011-2026 William P. Foster
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+LIBINSTALL=\Libraries
+
+SHELL=C:/Windows/System32/cmd.exe
+VER=1
+srcdir=../src
+includes=../../include
+
+#LIBINSTALL is the Target!
+LIBOUT = .
+
+DEFS = -D WIN32
+
+CCPP = cl
+CPPDEBUG = -D _DEBUG /Zi
+#INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
+CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) /std:c++17 $(DEFS) -D BFC_STATICLIB
+
+LINKER = lib
+LINKEROPTIONS =
+#LINKEROPTIONS = --export-dynamic
+
+build: create debug
+
+all : create check_headers debug release
+
+backup:
+	programmer -b .
+
+rebuild: clean all
+
+clean :
+	del Debug\*.o
+	del Release\*.o
+	del $(LIBOUT)\BFC_d.lib
+	del $(LIBOUT)\BFC.lib
+
+head:
+	programmer -h ../header src/*.cpp
+	programmer -h ../header src/*.h
+
+create:
+	if NOT EXIST Debug (mkdir Debug)
+	if NOT EXIST Release (mkdir Release)
+	programmer -mpw $(srcdir)
+
+debug : $(LIBOUT)/BFC_d.lib
+
+$(LIBOUT)/BFC_d.lib : $(ALL_DEBUG_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFC_d.lib $(ALL_DEBUG_OBJ)
+
+release : $(LIBOUT)/BFC.lib
+
+$(LIBOUT)/BFC.lib : $(ALL_RELEASE_OBJ)
+	$(LINKER) $(LINKEROPTIONS) /OUT:$(LIBOUT)/BFC.lib $(ALL_RELEASE_OBJ)
+
+install: installd release
+	copy $(LIBOUT)\BFC.lib $(LIBINSTALL)
+
+installd: debug
+	copy $(LIBOUT)\BFC_d.lib $(LIBINSTALL)
+
+uninstall:
+	del -f $(LIBINSTALL)\BFC.lib
+	del -f $(LIBINSTALL)\BFC_d.lib
+
+check_headers : $(ALL_H)
+	$(CCPP) -E $(CPPFLAGS) ../include/BFC.h > junk
+
+
+
