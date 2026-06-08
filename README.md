@@ -3,15 +3,16 @@
 [One-sentence description of what the library does and its primary use case.]
 
 ## Licensing
-This library is licensed under the GNU General Public License v3.0 or later.
+This library is licensed under the Lesser GNU General Public License v3.0 or later.
 See the file LICENSE for details.
-Source code is available at: https://github.com/your/repo
+Source code is available at: https://github.com/BillCoder-cpu/BFC
 
 ## ?? Quick Start
-In Windows, open the BFCHOME project using Visual Studio. and build, or run makebfc script in the correcr environment.
-In Linux, you can run makebfc script
+In Windows:
+	Open the BFCHOME project using Visual Studio. and build, or run makebfc script in the correcr environment.
+In Linux, you can run the makebfc script or try this first:
 ```
-git clone https://github.com/[your-username]/[project-name].git
+git clone https://github.com/BillCoder-cpu/BFC.git
 cd BFC
 make
 sudo make install
