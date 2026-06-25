@@ -33,7 +33,7 @@ LIBOUT = .
 includes=..\include
 DEFS = -D WIN32 -D BFC_STATICLIB
 
-CCPP = cl
+CCPP = cl /std:c++17
 CPPDEBUG = -D _DEBUG /Zi
 CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
 

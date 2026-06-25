@@ -21,11 +21,6 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
-
-//*/
-// Author: bill <wpf_software@hotmail.com>, (C) 2006
-//
-*/
 //*/
 
 namespace CBfcGUI

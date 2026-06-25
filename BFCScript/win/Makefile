@@ -3,7 +3,20 @@
 #
 #ThisistheWindowsMakefileforBFCScript
 #
-#Copyright(C)2005-2020byWilliamP.Foster,allrightsreserved
+#SPDX-License-Identifier:LGPL-3.0-or-later
+#Copyright(C)2011-2026WilliamP.Foster
+#Thisprogramisfreesoftware:youcanredistributeitand/ormodify
+#itunderthetermsoftheGNULesserGeneralPublicLicenseaspublishedby
+#theFreeSoftwareFoundation,eitherversion3oftheLicense,or
+#(atyouroption)anylaterversion.
+#
+#Thisprogramisdistributedinthehopethatitwillbeuseful,but
+#WITHOUTANYWARRANTY;withouteventheimpliedwarrantyof
+#MERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNU
+#LesserGeneralPublicLicenseformoredetails.
+#
+#YoushouldhavereceivedacopyoftheGNULesserGeneralPublicLicense
+#alongwiththisprogram.Ifnot,see<https://www.gnu.org/licenses/>.
 #
 #
 # Generated via Programmer, a programmer's utility.
@@ -44,9 +57,9 @@ BFCDIR=$(SRCDIR)\C++\Engines\BFC
 VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
 CSDIR=$(SRCDIR)\cs
 
-CCPP = cl
+CCPP = cl /std:c++17 
 CPPDEBUG = -D _DEBUG /Zi
-CPPFLAGS = -I$(srcdir) -I$(includes) $(DEFS)
+CPPFLAGS = -I$(srcdir) -I$(includes) $(DEFS) 
 
 LINKER = lib
 #LINKEROPTIONS = -r

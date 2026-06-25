@@ -31,9 +31,9 @@ BFCDIR=$(SRCDIR)\C++\Engines\BFC
 VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
 CSDIR=$(SRCDIR)\cs
 
-CCPP = cl
+CCPP = cl /std:c++17 
 CPPDEBUG = -D _DEBUG /Zi
-CPPFLAGS = -I$(srcdir) -I$(includes) $(DEFS)
+CPPFLAGS = -I$(srcdir) -I$(includes) $(DEFS) 
 
 LINKER = lib
 #LINKEROPTIONS = -r

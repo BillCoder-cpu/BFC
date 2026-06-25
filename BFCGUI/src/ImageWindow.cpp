@@ -23,10 +23,6 @@
 */
 
 //*/
-// Author: bill <wpf_software@hotmail.com>, (C) 2006
-//
-*/
-//*/
 
 #include <BFC/BFCGUI.h>
 

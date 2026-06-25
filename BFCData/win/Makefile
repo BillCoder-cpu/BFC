@@ -1,8 +1,20 @@
 #
 #ThisistheWindowsMakefileforBFCData
 #
-#Copyright(C)2011byWilliamP.Foster,allrightsreserved
+#SPDX-License-Identifier:LGPL-3.0-or-later
+#Copyright(C)2011-2026WilliamP.Foster
+#Thisprogramisfreesoftware:youcanredistributeitand/ormodify
+#itunderthetermsoftheGNULesserGeneralPublicLicenseaspublishedby
+#theFreeSoftwareFoundation,eitherversion3oftheLicense,or
+#(atyouroption)anylaterversion.
 #
+#Thisprogramisdistributedinthehopethatitwillbeuseful,but
+#WITHOUTANYWARRANTY;withouteventheimpliedwarrantyof
+#MERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNU
+#LesserGeneralPublicLicenseformoredetails.
+#
+#YoushouldhavereceivedacopyoftheGNULesserGeneralPublicLicense
+#alongwiththisprogram.Ifnot,see<https://www.gnu.org/licenses/>.
 #
 # Generated via Programmer, a programmer's utility.
 #
@@ -32,7 +44,7 @@ DEFS = -D WIN32 -D STATICLIB
 #CSDIR=$(SRCBASE)\cs
 #VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
 
-CCPP = cl
+CCPP = cl /std:c++17
 CPPDEBUG = -D _DEBUG /Zi
 CPPFLAGS = -I$(srcdir) -I$(includes) /std:c++17 $(DEFS)
 

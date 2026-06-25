@@ -28,7 +28,7 @@ includes=-I$(srcdir) -I..\..\include  -I$(FOXDIR)/include
 DEFS = -D WIN32 -D BFC_STATICLIB
 LIBS = $(LIBOUT)/BFC.so
 
-CCPP = cl
+CCPP = cl /std:c++17
 CPPDEBUG = -D _DEBUG /Zi
 #INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
 CPPFLAGS = $(INTELOPTIONS) $(CDEBUG) $(includes) $(DEFS)

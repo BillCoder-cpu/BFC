@@ -3,8 +3,20 @@
 #
 #ThisistheWindowsMakefileforBFCGUI
 #
-#Copyright(C)2004-2008byWilliamP.Foster,allrightsreserved
+#SPDX-License-Identifier:LGPL-3.0-or-later
+#Copyright(C)2011-2026WilliamP.Foster
+#Thisprogramisfreesoftware:youcanredistributeitand/ormodify
+#itunderthetermsoftheGNULesserGeneralPublicLicenseaspublishedby
+#theFreeSoftwareFoundation,eitherversion3oftheLicense,or
+#(atyouroption)anylaterversion.
 #
+#Thisprogramisdistributedinthehopethatitwillbeuseful,but
+#WITHOUTANYWARRANTY;withouteventheimpliedwarrantyof
+#MERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNU
+#LesserGeneralPublicLicenseformoredetails.
+#
+#YoushouldhavereceivedacopyoftheGNULesserGeneralPublicLicense
+#alongwiththisprogram.Ifnot,see<https://www.gnu.org/licenses/>.
 #
 #
 # Generated via Programmer, a programmer's utility.
@@ -66,7 +78,7 @@ includes=-I$(srcdir) -I..\..\include -I$(FOXDIR)\include
 DEFS = -D WIN32 -D BFC_STATICLIB
 LIBS = $(LIBOUT)\BFCGUI.lib
 
-CCPP = cl
+CCPP = cl /std:c++17 
 CPPDEBUG = -D _DEBUG /Zi
 #INTELOPTIONS=-march=pentium3 -msse -mfpmath=sse
 CPPFLAGS = $(INTELOPTIONS) $(includes) $(DEFS)

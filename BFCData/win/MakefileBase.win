@@ -28,7 +28,7 @@ DEFS = -D WIN32 -D STATICLIB
 #CSDIR=$(SRCBASE)\cs
 #VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
 
-CCPP = cl
+CCPP = cl /std:c++17
 CPPDEBUG = -D _DEBUG /Zi
 CPPFLAGS = -I$(srcdir) -I$(includes) /std:c++17 $(DEFS)
 

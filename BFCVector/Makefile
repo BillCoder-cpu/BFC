@@ -1,9 +1,22 @@
 #
 #WINDOWSMakefile
 #
-#ThisisthevisualstudioMakefileforBFC
+#ThisisthevisualstudioMakefileforBFCVector
 #
-#Copyright(C)2004byWilliamP.Foster,allrightsreserved
+#SPDX-License-Identifier:LGPL-3.0-or-later
+#Copyright(C)2011-2026WilliamP.Foster
+#Thisprogramisfreesoftware:youcanredistributeitand/ormodify
+#itunderthetermsoftheGNULesserGeneralPublicLicenseaspublishedby
+#theFreeSoftwareFoundation,eitherversion3oftheLicense,or
+#(atyouroption)anylaterversion.
+#
+#Thisprogramisdistributedinthehopethatitwillbeuseful,but
+#WITHOUTANYWARRANTY;withouteventheimpliedwarrantyof
+#MERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNU
+#LesserGeneralPublicLicenseformoredetails.
+#
+#YoushouldhavereceivedacopyoftheGNULesserGeneralPublicLicense
+#alongwiththisprogram.Ifnot,see<https://www.gnu.org/licenses/>.
 #
 #
 # Generated via Programmer, a programmer's utility.
@@ -27,21 +40,22 @@ ALL_DEBUG_OBJ = $(DebugDir)\CBfcVector_Shape2d.o $(DebugDir)\CBfcVector_Shape2d_
 ALL_RELEASE_OBJ = $(ReleaseDir)\CBfcVector_Shape2d.o $(ReleaseDir)\CBfcVector_Shape2d_Bezier.o $(ReleaseDir)\CBfcVector_Shape2d_Rect.o $(ReleaseDir)\CBfcVector_Shape3d.o  \
 		$(ReleaseDir)\CBfcVector_SpaceVector.o  
 
+SRCBASE=\Sources
+LIBINSTALL=\Libraries
+
 SHELL=C:/Windows/System32/cmd.exe
 VCINC="C:\Program Files\Microsoft Visual Studio 10.0\VC\include"
-SRCDIR=\Users\Bill\Sources
-BFCINC=$(SRCDIR)\C++\Engines\BFC\include
-BFCDIR=$(SRCDIR)\C++\Engines\BFC
-CSDIR=$(SRCDIR)\cs
+BFCINC=$(SRCBASE)\C++\Engines\BFC\include
+BFCDIR=$(SRCBASE)\C++\Engines\BFC
+CSDIR=$(SRCBASE)\cs
 
 VER=1
 srcdir=src
-LIBINSTALL=\Users\Bill\Libraries
 LIBOUT = .
 includes=..\include
 DEFS = -D WIN32 -D BFC_STATICLIB
 
-CCPP = cl
+CCPP = cl /std:c++17
 CPPDEBUG = -D _DEBUG /Zi
 CPPFLAGS = $(INTELOPTIONS) -I$(srcdir) -I$(includes) $(DEFS)
 

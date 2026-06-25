@@ -3,8 +3,20 @@
 #
 #ThisistheVisualStudioMakefileforBFC
 #
-#Copyright(C)2004through2008byWilliamP.Foster,allrightsreserved
+#SPDX-License-Identifier:LGPL-3.0-or-later
+#Copyright(C)2011-2026WilliamP.Foster
+#Thisprogramisfreesoftware:youcanredistributeitand/ormodify
+#itunderthetermsoftheGNULesserGeneralPublicLicenseaspublishedby
+#theFreeSoftwareFoundation,eitherversion3oftheLicense,or
+#(atyouroption)anylaterversion.
 #
+#Thisprogramisdistributedinthehopethatitwillbeuseful,but
+#WITHOUTANYWARRANTY;withouteventheimpliedwarrantyof
+#MERCHANTABILITYorFITNESSFORAPARTICULARPURPOSE.SeetheGNU
+#LesserGeneralPublicLicenseformoredetails.
+#
+#YoushouldhavereceivedacopyoftheGNULesserGeneralPublicLicense
+#alongwiththisprogram.Ifnot,see<https://www.gnu.org/licenses/>.
 #
 # Generated via Programmer, a programmer's utility.
 #
@@ -23,40 +35,40 @@ ALL_H = Array2d.h BFCDefs.h BFCDefs_KeyDefs.h BFCTypes.h  \
 		CBfc_Value.h character.h speedfloat.h  
 
 ALL_CPP = ../src\Bfc_DebugStatic.cpp ../src\CBfc_2dRect.cpp ../src\CBfc_2dSize.cpp ../src\CBfc_Angle.cpp  \
-		../src\CBfc_Array.cpp ../src\CBfc_CompressionAlgorythm.cpp ../src\CBfc_Distance.cpp ../src\CBfc_DynamicLink.cpp  \
-		../src\CBfc_Exception.cpp ../src\CBfc_File.cpp ../src\CBfc_Filename.cpp ../src\CBfc_LinkedList.cpp  \
-		../src\CBfc_MatrixDoubles.cpp ../src\CBfc_PointSpace3d.cpp ../src\CBfc_PointSpaceTime.cpp ../src\CBfc_PointTime.cpp  \
-		../src\CBfc_Range2d.cpp ../src\CBfc_ReferencedAllocation.cpp ../src\CBfc_ReferencedObject.cpp ../src\CBfc_ReferencedPointer.cpp  \
-		../src\CBfc_Registry.cpp ../src\CBfc_Stream.cpp ../src\CBfc_StreamSource.cpp ../src\CBfc_String.cpp  \
-		../src\CBfc_String8.cpp ../src\CBfc_Value.cpp ../src\character.cpp ../src\Rect2dU.cpp  \
-		../src\Size2dU.cpp  
+		../src\CBfc_Array.cpp ../src\CBfc_Clipboard.cpp ../src\CBfc_CompressionAlgorythm.cpp ../src\CBfc_Distance.cpp  \
+		../src\CBfc_DynamicLink.cpp ../src\CBfc_Exception.cpp ../src\CBfc_File.cpp ../src\CBfc_Filename.cpp  \
+		../src\CBfc_LinkedList.cpp ../src\CBfc_MatrixDoubles.cpp ../src\CBfc_PointSpace3d.cpp ../src\CBfc_PointSpaceTime.cpp  \
+		../src\CBfc_PointTime.cpp ../src\CBfc_Range2d.cpp ../src\CBfc_ReferencedAllocation.cpp ../src\CBfc_ReferencedObject.cpp  \
+		../src\CBfc_ReferencedPointer.cpp ../src\CBfc_Registry.cpp ../src\CBfc_Stream.cpp ../src\CBfc_StreamSource.cpp  \
+		../src\CBfc_String.cpp ../src\CBfc_String8.cpp ../src\CBfc_Value.cpp ../src\character.cpp  \
+		../src\Rect2dU.cpp ../src\Size2dU.cpp  
 
 ALL_OBJ = ../src\Bfc_DebugStatic.o ../src\CBfc_2dRect.o ../src\CBfc_2dSize.o ../src\CBfc_Angle.o  \
-		../src\CBfc_Array.o ../src\CBfc_CompressionAlgorythm.o ../src\CBfc_Distance.o ../src\CBfc_DynamicLink.o  \
-		../src\CBfc_Exception.o ../src\CBfc_File.o ../src\CBfc_Filename.o ../src\CBfc_LinkedList.o  \
-		../src\CBfc_MatrixDoubles.o ../src\CBfc_PointSpace3d.o ../src\CBfc_PointSpaceTime.o ../src\CBfc_PointTime.o  \
-		../src\CBfc_Range2d.o ../src\CBfc_ReferencedAllocation.o ../src\CBfc_ReferencedObject.o ../src\CBfc_ReferencedPointer.o  \
-		../src\CBfc_Registry.o ../src\CBfc_Stream.o ../src\CBfc_StreamSource.o ../src\CBfc_String.o  \
-		../src\CBfc_String8.o ../src\CBfc_Value.o ../src\character.o ../src\Rect2dU.o  \
-		../src\Size2dU.o  
+		../src\CBfc_Array.o ../src\CBfc_Clipboard.o ../src\CBfc_CompressionAlgorythm.o ../src\CBfc_Distance.o  \
+		../src\CBfc_DynamicLink.o ../src\CBfc_Exception.o ../src\CBfc_File.o ../src\CBfc_Filename.o  \
+		../src\CBfc_LinkedList.o ../src\CBfc_MatrixDoubles.o ../src\CBfc_PointSpace3d.o ../src\CBfc_PointSpaceTime.o  \
+		../src\CBfc_PointTime.o ../src\CBfc_Range2d.o ../src\CBfc_ReferencedAllocation.o ../src\CBfc_ReferencedObject.o  \
+		../src\CBfc_ReferencedPointer.o ../src\CBfc_Registry.o ../src\CBfc_Stream.o ../src\CBfc_StreamSource.o  \
+		../src\CBfc_String.o ../src\CBfc_String8.o ../src\CBfc_Value.o ../src\character.o  \
+		../src\Rect2dU.o ../src\Size2dU.o  
 
 ALL_DEBUG_OBJ = $(DebugDir)\Bfc_DebugStatic.o $(DebugDir)\CBfc_2dRect.o $(DebugDir)\CBfc_2dSize.o $(DebugDir)\CBfc_Angle.o  \
-		$(DebugDir)\CBfc_Array.o $(DebugDir)\CBfc_CompressionAlgorythm.o $(DebugDir)\CBfc_Distance.o $(DebugDir)\CBfc_DynamicLink.o  \
-		$(DebugDir)\CBfc_Exception.o $(DebugDir)\CBfc_File.o $(DebugDir)\CBfc_Filename.o $(DebugDir)\CBfc_LinkedList.o  \
-		$(DebugDir)\CBfc_MatrixDoubles.o $(DebugDir)\CBfc_PointSpace3d.o $(DebugDir)\CBfc_PointSpaceTime.o $(DebugDir)\CBfc_PointTime.o  \
-		$(DebugDir)\CBfc_Range2d.o $(DebugDir)\CBfc_ReferencedAllocation.o $(DebugDir)\CBfc_ReferencedObject.o $(DebugDir)\CBfc_ReferencedPointer.o  \
-		$(DebugDir)\CBfc_Registry.o $(DebugDir)\CBfc_Stream.o $(DebugDir)\CBfc_StreamSource.o $(DebugDir)\CBfc_String.o  \
-		$(DebugDir)\CBfc_String8.o $(DebugDir)\CBfc_Value.o $(DebugDir)\character.o $(DebugDir)\Rect2dU.o  \
-		$(DebugDir)\Size2dU.o  
+		$(DebugDir)\CBfc_Array.o $(DebugDir)\CBfc_Clipboard.o $(DebugDir)\CBfc_CompressionAlgorythm.o $(DebugDir)\CBfc_Distance.o  \
+		$(DebugDir)\CBfc_DynamicLink.o $(DebugDir)\CBfc_Exception.o $(DebugDir)\CBfc_File.o $(DebugDir)\CBfc_Filename.o  \
+		$(DebugDir)\CBfc_LinkedList.o $(DebugDir)\CBfc_MatrixDoubles.o $(DebugDir)\CBfc_PointSpace3d.o $(DebugDir)\CBfc_PointSpaceTime.o  \
+		$(DebugDir)\CBfc_PointTime.o $(DebugDir)\CBfc_Range2d.o $(DebugDir)\CBfc_ReferencedAllocation.o $(DebugDir)\CBfc_ReferencedObject.o  \
+		$(DebugDir)\CBfc_ReferencedPointer.o $(DebugDir)\CBfc_Registry.o $(DebugDir)\CBfc_Stream.o $(DebugDir)\CBfc_StreamSource.o  \
+		$(DebugDir)\CBfc_String.o $(DebugDir)\CBfc_String8.o $(DebugDir)\CBfc_Value.o $(DebugDir)\character.o  \
+		$(DebugDir)\Rect2dU.o $(DebugDir)\Size2dU.o  
 
 ALL_RELEASE_OBJ = $(ReleaseDir)\Bfc_DebugStatic.o $(ReleaseDir)\CBfc_2dRect.o $(ReleaseDir)\CBfc_2dSize.o $(ReleaseDir)\CBfc_Angle.o  \
-		$(ReleaseDir)\CBfc_Array.o $(ReleaseDir)\CBfc_CompressionAlgorythm.o $(ReleaseDir)\CBfc_Distance.o $(ReleaseDir)\CBfc_DynamicLink.o  \
-		$(ReleaseDir)\CBfc_Exception.o $(ReleaseDir)\CBfc_File.o $(ReleaseDir)\CBfc_Filename.o $(ReleaseDir)\CBfc_LinkedList.o  \
-		$(ReleaseDir)\CBfc_MatrixDoubles.o $(ReleaseDir)\CBfc_PointSpace3d.o $(ReleaseDir)\CBfc_PointSpaceTime.o $(ReleaseDir)\CBfc_PointTime.o  \
-		$(ReleaseDir)\CBfc_Range2d.o $(ReleaseDir)\CBfc_ReferencedAllocation.o $(ReleaseDir)\CBfc_ReferencedObject.o $(ReleaseDir)\CBfc_ReferencedPointer.o  \
-		$(ReleaseDir)\CBfc_Registry.o $(ReleaseDir)\CBfc_Stream.o $(ReleaseDir)\CBfc_StreamSource.o $(ReleaseDir)\CBfc_String.o  \
-		$(ReleaseDir)\CBfc_String8.o $(ReleaseDir)\CBfc_Value.o $(ReleaseDir)\character.o $(ReleaseDir)\Rect2dU.o  \
-		$(ReleaseDir)\Size2dU.o  
+		$(ReleaseDir)\CBfc_Array.o $(ReleaseDir)\CBfc_Clipboard.o $(ReleaseDir)\CBfc_CompressionAlgorythm.o $(ReleaseDir)\CBfc_Distance.o  \
+		$(ReleaseDir)\CBfc_DynamicLink.o $(ReleaseDir)\CBfc_Exception.o $(ReleaseDir)\CBfc_File.o $(ReleaseDir)\CBfc_Filename.o  \
+		$(ReleaseDir)\CBfc_LinkedList.o $(ReleaseDir)\CBfc_MatrixDoubles.o $(ReleaseDir)\CBfc_PointSpace3d.o $(ReleaseDir)\CBfc_PointSpaceTime.o  \
+		$(ReleaseDir)\CBfc_PointTime.o $(ReleaseDir)\CBfc_Range2d.o $(ReleaseDir)\CBfc_ReferencedAllocation.o $(ReleaseDir)\CBfc_ReferencedObject.o  \
+		$(ReleaseDir)\CBfc_ReferencedPointer.o $(ReleaseDir)\CBfc_Registry.o $(ReleaseDir)\CBfc_Stream.o $(ReleaseDir)\CBfc_StreamSource.o  \
+		$(ReleaseDir)\CBfc_String.o $(ReleaseDir)\CBfc_String8.o $(ReleaseDir)\CBfc_Value.o $(ReleaseDir)\character.o  \
+		$(ReleaseDir)\Rect2dU.o $(ReleaseDir)\Size2dU.o  
 
 LIBINSTALL=\Libraries
 
@@ -158,6 +170,12 @@ $(DebugDir)\CBfc_Array.o : ..\src\CBfc_Array.cpp
 
 $(ReleaseDir)\CBfc_Array.o : ..\src\CBfc_Array.cpp 
 		$(CCPP) -c $(CPPFLAGS) /Fo$(ReleaseDir)\CBfc_Array.o ..\src\CBfc_Array.cpp
+
+$(DebugDir)\CBfc_Clipboard.o : ..\src\CBfc_Clipboard.cpp 
+		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /Fo$(DebugDir)\CBfc_Clipboard.o ..\src\CBfc_Clipboard.cpp
+
+$(ReleaseDir)\CBfc_Clipboard.o : ..\src\CBfc_Clipboard.cpp 
+		$(CCPP) -c $(CPPFLAGS) /Fo$(ReleaseDir)\CBfc_Clipboard.o ..\src\CBfc_Clipboard.cpp
 
 $(DebugDir)\CBfc_CompressionAlgorythm.o : ..\src\CBfc_CompressionAlgorythm.cpp 
 		$(CCPP) -c $(CPPFLAGS) $(CPPDEBUG) /Fo$(DebugDir)\CBfc_CompressionAlgorythm.o ..\src\CBfc_CompressionAlgorythm.cpp
