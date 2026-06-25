@@ -257,9 +257,8 @@ OVERRIDE bool StreamSource_File::Sleep (void) {
 OVERRIDE bool StreamSource_File::Awaken (void) {
 	if (Open())
 	{
-		unsigned long ulOrigin = 0;
 		__uint64 newpos;
-		return Seek(m_SleepOffset, ulOrigin, &newpos);
+		return Seek(m_SleepOffset, SEEK_SET, &newpos);
 	}
 	return false;
 }

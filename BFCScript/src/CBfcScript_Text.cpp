@@ -89,9 +89,8 @@ OVERRIDE bool Script_Text::OnAttach()
 
 bool Script_Text::ClearBuffer()
 {
-	const ULONG		ulOrigin = 0;
 	__uint64		newpos;
-	return Seek (Tell(),ulOrigin, &newpos);	// seek empties the buffer for you.
+	return Seek (Tell(), SEEK_SET, &newpos);	// seek empties the buffer for you.
 }
 
 void Script_Text::EmptyBuffer()
@@ -99,9 +98,9 @@ void Script_Text::EmptyBuffer()
 	m_u_BufferIndex = m_u_CharsInBuffer = 0;
 }
 
-bool Script_Text::Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition)
+bool Script_Text::Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition)
 {
-	const bool b_rval = CBfc_Stream::Seek (n64Offset, ulOrigin, pun64NewPosition);
+	const bool b_rval = CBfc_Stream::Seek (n64Offset, uSeekType, pun64NewPosition);
 	if (b_rval)
 		EmptyBuffer();
 	return b_rval;

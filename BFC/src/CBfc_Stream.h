@@ -62,15 +62,14 @@ public:
 
 	CBfc::FileHandle *GetFileHandle();
 
-	virtual inline bool Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL)
+	virtual inline bool Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL)
 				{
-					return m_p_source->Seek (n64Offset, ulOrigin, pun64NewPosition);
+					return m_p_source->Seek (n64Offset, uSeekType, pun64NewPosition);
 				}
 
 	virtual inline bool Rewind()
 				{
-					const unsigned long ulOrigin = 0;
-					return Seek(0,ulOrigin);
+					return Seek(0,SEEK_SET);
 				}
 
 	virtual inline __uint64	Tell()

@@ -225,7 +225,7 @@ bool Image_Format_BMP :: LoadRectangle (const CBfc_2dRect &rect2d_Load, CBfcImag
 		while (y < y2)
 		{
 			const UINT    offset = ObtainOffset (x, y);
-			Stream::Seek (m_BitsOffset + offset, 0);
+			Stream::Seek (m_BitsOffset + offset, SEEK_SET);
 
 			if (!Stream::Read (pad, u_pitch))
 			{
@@ -241,7 +241,7 @@ bool Image_Format_BMP :: LoadRectangle (const CBfc_2dRect &rect2d_Load, CBfcImag
 		while (y < y2 && b_rVal)
 		{
 			const UINT    offset = ObtainOffset (x, y);
-			Stream::Seek (m_BitsOffset + offset, 0);
+			Stream::Seek (m_BitsOffset + offset, SEEK_SET);
 
 			BYTE *pDst = bfc_bitmap.ReferenceBitPtr(x,y,u_pitch);
 			if (pDst)

@@ -41,7 +41,7 @@ public:
 	virtual ~Script_Text();
 
 public:
-	virtual bool Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL);
+	virtual bool Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL);
 	virtual __uint64	Tell();
 
 	bool AppendStreamWithSubstitution (Script_Text &stream, const CBfc::StringArray &substitute_array, const CBfc::StringArray &replace_array);
