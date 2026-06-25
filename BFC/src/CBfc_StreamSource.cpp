@@ -100,12 +100,23 @@ bool StreamSource_Memory :: Detach ()
 	return true;
 }
 
-bool StreamSource_Memory :: Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition)
+unsigned long StreamSource_Memory :: FileLength()
 {
-	switch (ulOrigin)
+	return m_memoryBuffer.GetBytesAllocated();
+}
+
+bool StreamSource_Memory :: Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition)
+{
+	switch (uSeekType)
 	{
-		default:
+		case SEEK_SET:
 			m_n_memoryOffset = n64Offset;
+			break;
+		case SEEK_END:
+			m_n_memoryOffset = m_memoryBuffer.GetBytesAllocated() + n64Offset;
+			break;
+		case SEEK_CUR:
+			m_n_memoryOffset += n64Offset;
 			break;
 	}
 	if (pun64NewPosition)
@@ -201,9 +212,9 @@ OVERRIDE bool StreamSource_File::CloseIt (void)
 	return true;
 }
 
-bool StreamSource_File::Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition)
+bool StreamSource_File::Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition)
 {
-	return m_p_fhan->Seek(n64Offset, ulOrigin, pun64NewPosition);
+	return m_p_fhan->Seek(n64Offset, uSeekType, pun64NewPosition);
 }
 
 // lseek
@@ -221,6 +232,11 @@ bool StreamSource_File::Write (const void *srcMem, const unsigned int uCount, un
 bool StreamSource_File::Read (void *dstMem, const unsigned int uCount, unsigned int *p_uBytesRead)
 {
 	return m_p_fhan->Read (dstMem,uCount,p_uBytesRead);
+}
+
+unsigned long StreamSource_File :: FileLength()
+{
+	return m_p_fhan->FileLength();
 }
 
 void*	StreamSource_File::Dup(void)

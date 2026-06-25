@@ -58,10 +58,10 @@ public:
 
     virtual bool			Read (void *dstMem, const unsigned int uCount, unsigned int *p_uBytesRead=NULL) = 0;
     virtual bool			Write (const void *srcMem, const unsigned int uCount, unsigned int *p_uBytesWritten=NULL) = 0;
-    virtual bool			Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL) = 0;
+    virtual bool			Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL) = 0;
+	virtual unsigned long	FileLength() = 0;
 	virtual __uint64		Tell() = 0;
-    virtual	bool			Flush() {
-								return true; }
+    virtual	bool			Flush() { return true; }
 
 	virtual void*			Dup(void) =0;
 	
@@ -81,10 +81,11 @@ public:
 	virtual ~StreamSource_Memory();
 
     virtual bool			Detach (void);
-	virtual bool			Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL);
+	virtual bool			Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL);
 	virtual UINT64			Tell();
     virtual bool			Read (void *dstMem, const unsigned int uCount, unsigned int *p_uBytesRead=NULL);
     virtual bool			Write (const void *srcMem, const unsigned int uCount, unsigned int *p_uBytesWritten=NULL);
+	virtual unsigned long	FileLength();
 
 	virtual void		*	Dup(void);
 protected:
@@ -102,7 +103,7 @@ public:
 	virtual void	*Dup ();
 	bool	IsOpen() const;
 
-	bool		Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL);
+	bool		Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL);
 	UINT64      Tell();
 	bool        Read (void *dstMem, const unsigned int uCount, unsigned int *p_uBytesRead=NULL);
 	bool		Write (const void *srcMem, const unsigned int uCount, unsigned int *p_uBytesWritten=NULL);
@@ -133,10 +134,11 @@ public:
 
 	virtual bool        OpenIt ();
     virtual bool        CloseIt (void);
-    virtual bool		Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition = NULL);
+    virtual bool		Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition = NULL);
     virtual UINT64      Tell();
     virtual bool        Read (void *dstMem, const unsigned int uCount, unsigned int *p_uBytesRead=NULL);
     virtual bool		Write (const void *srcMem, const unsigned int uCount, unsigned int *p_uBytesWritten=NULL);
+	virtual unsigned long	FileLength();
 
 	virtual bool Sleep (void);
 	virtual bool Awaken (void);

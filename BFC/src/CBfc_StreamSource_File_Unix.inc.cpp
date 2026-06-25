@@ -82,9 +82,9 @@ INT64 FileHandle::FileLength ()
 	 return rval;
 }
 
-bool FileHandle::Seek(const INT64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition)
+bool FileHandle::Seek(const INT64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition)
 {
-	if (fseeko (m_fp, n64Offset, SEEK_SET) == 0)
+	if (fseeko (m_fp, n64Offset, uSeekType) == 0)
 	{
 		if (pun64NewPosition)
 			*pun64NewPosition = ftello(m_fp);

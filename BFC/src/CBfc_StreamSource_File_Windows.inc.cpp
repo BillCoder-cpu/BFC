@@ -110,9 +110,9 @@ long FileHandle::FileLength ()
 	 return rval;
 }
 
-bool FileHandle::Seek(const __int64& n64Offset, const unsigned long& ulOrigin, __uint64* pun64NewPosition)
+bool FileHandle::Seek(const __int64& n64Offset, const unsigned int uSeekType, __uint64* pun64NewPosition)
 {
-	__int64 newpos = _lseeki64(m_hFile, n64Offset, SEEK_SET);
+	__int64 newpos = _lseeki64(m_hFile, n64Offset, uSeekType);
 	if (pun64NewPosition)
 		*pun64NewPosition = newpos;
 	return true;
