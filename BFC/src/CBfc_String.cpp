@@ -1093,6 +1093,18 @@ bool	 __cdecl STRING::Format (const char *lpszFormat, ...)
 	va_end (argList);
 	return true;
 }
+
+bool __cdecl STRING::Format (const wchar_t* lpszFormat, ...)
+{
+//	return Format((const CHARACTER_PTR)lpszFormat, ...);
+	va_list argList;
+	va_start (argList, lpszFormat);
+//    CHARACTER_PTR t = va_arg( argList, CHARACTER_PTR);	// Throw away 1st arg
+	FormatV ((const CHARACTER_PTR)lpszFormat, argList);
+	va_end (argList);
+	return true;
+}
+
 #endif
 
 

@@ -206,6 +206,7 @@ public:
 	bool	 Format (const CHARACTER_PTR lpszFormat, ...);
 #ifndef _UNICODE_8
 	bool	 Format (const char *lpszFormat, ...);
+	bool	 Format (const wchar_t* lpszFormat, ...);
 	void	 FormatV (const CHARACTER_PTR lpszFormat, va_list argList);
 #endif
 	void	 FormatV (const char *lpszFormat, va_list argList);

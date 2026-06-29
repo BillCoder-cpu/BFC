@@ -177,6 +177,25 @@ bool Script_Text::WriteLine (const CHARACTER_PTR lpszFormat, ...)
 	return Write (string); // (void *)cp_out, u_bytesout);
 }
 
+#ifndef _UNICODE_8
+bool  Script_Text::WriteLine (const wchar_t* lpszFormat, ...)
+{
+	CBfc_String string;
+	if (lpszFormat && *lpszFormat)
+	{
+		va_list argList;
+
+		va_start (argList, lpszFormat);
+		string.FormatV ((const CHARACTER_PTR)lpszFormat, argList);
+		va_end (argList);
+	}
+
+	string += _TXT("\n");
+	m_uLineNumber++;
+	return Write (string); // (void *)cp_out, u_bytesout);
+}
+#endif
+
 bool Script_Text::Write (const CHARACTER_PTR lpszFormat, ...)
 {
 #if 1

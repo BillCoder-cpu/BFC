@@ -25,7 +25,6 @@
 //*/
 
 #include <BFC/BFCOS.h>
-
 #include <fx.h>
 
 namespace CBfcOS {
@@ -50,8 +49,8 @@ bool Registry::SetUINT(const CBfc_String &key, const UINT U)
 {
 	FXApp	*foxapp = (FXApp*)m_p_GUI->GetAppLayerPtr();
 	char	*p_key = key.MakeAsciiBuffer();
- 	FXbool bRval = foxapp->reg().writeUnsignedEntry(m_p_section,p_key, U);
-//	FXbool bRval = foxapp->reg().writeUIntEntry(m_p_section,p_key, U);
+// 	FXbool bRval = foxapp->reg().writeUnsignedEntry(m_p_section,p_key, U);
+	FXbool bRval = foxapp->reg().writeUIntEntry(m_p_section,p_key, U);
 	delete[] p_key;
 	return bRval != 0;
 }
@@ -62,8 +61,8 @@ bool Registry::GetUINT(const CBfc_String &key, UINT &rU, const UINT defaultU) co
 	char	*p_key = key.MakeAsciiBuffer();
 	if (p_key)
 	{
-		rU = foxapp->reg().readUnsignedEntry(m_p_section, p_key, defaultU);
-//		rU = foxapp->reg().readUIntEntry(m_p_section, p_key, defaultU);
+//		rU = foxapp->reg().readUnsignedEntry(m_p_section, p_key, defaultU);
+		rU = foxapp->reg().readUIntEntry(m_p_section, p_key, defaultU);
 		delete[] p_key;
 	}
 	return true;

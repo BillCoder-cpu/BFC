@@ -55,6 +55,9 @@ public:
 
 	bool	WriteLine (const CBfc_String &cs);
 	bool	WriteLine (const CHARACTER_PTR lpszFormat, ...);
+#ifndef _UNICODE_8
+	bool	WriteLine (const wchar_t* lpszFormat, ...);
+#endif
     bool	Write (const CBfc_String &cs);
     bool	Write (const CHARACTER_PTR lpszFormat, ...);
 	bool	Write_Tabbified (const CBfc_String &text);

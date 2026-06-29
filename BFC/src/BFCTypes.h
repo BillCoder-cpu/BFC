@@ -79,10 +79,8 @@ typedef characterU * characterPtrW;			// Word
 #ifdef _UNICODE_16
 	typedef characterU		character;
 #	define	characterPtr	characterPtrU
-#	define _TXT(x)			(L ## x)
 	typedef const characterU * const_characterPtr;
-#endif
-#ifdef _UNICODE_8
+#elif _UNICODE_8
 #	ifdef	BFC_USE_MBCS
 		#define	_UNICODE_8_MBCS
 		typedef characterM		character;
@@ -93,9 +91,15 @@ typedef characterU * characterPtrW;			// Word
 		typedef const characterA * const_characterPtr;
 //		#	define	characterPtr	characterPtrA
 #	endif
-#	define	_TXT(x)			(x)
 #endif
 
 #define CharacterPtr	characterPtr
 
 typedef character *	CHARACTER_PTR;
+
+#ifdef _UNICODE_16
+//#	define _TXT(x)			(CHARACTER_PTR)(L ## x)
+#	define _TXT(x)			(L ## x)
+#elif _UNICODE_8
+#	define	_TXT(x)			(x)
+#endif
