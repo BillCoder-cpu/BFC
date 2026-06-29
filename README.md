@@ -8,9 +8,23 @@ See the file LICENSE for details.
 Source code is available at: https://github.com/BillCoder-cpu/BFC
 
 ## ?? Quick Start
+Dependencies:
+  programmer: For the build system, it is nice to have programmer going.  Download yours at (https://github.com/BillCoder-cpu/programmer).
+  Fox Toolkit: download a 1.7 version (fox-toolkit.org) or prebuilt for windows VC++ at (https://github.com/LordOfDragons/fox-precompiled).
+   I may include a version built for windows VC++ with this release, 
+    but until then point FOXDIR to the fox folder in all MakefileBase.win files and run "makebfc create" to regenerate the makefiles
+  
 In Windows:
-	Open the BFCHOME project using Visual Studio. and build, or run makebfc script in the correct environment.
-In Linux, you can run the makebfc script or try this first:
+	Open the BFCHOME project using Visual Studio. and build
+  -OR- run makebfc.bat in the correct environment:
+```
+  makebfc clean 
+  makebfc
+  makebfc install  <-- to copy all the results to /Libraries folder
+```
+
+In Linux:
+   you can run the makebfc script or try this first:
 ```
 git clone https://github.com/BillCoder-cpu/BFC.git
 cd BFC
