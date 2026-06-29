@@ -23,18 +23,9 @@
 */
 
 //*/
- //*/
-/*
-					CFoxBFCWindow.h : 
-   
-	Copyright (C) 2004-2005 by William P. Foster, all rights reserved.
-		
-		This source file is part of the BFC C++ Engine.
-	 Designed, Constructed, and Maintained by Bill Foster.  
-*/
-//*/
 
-#define FOXDLL
+//#define FOXDLL
+
 //#ifdef BFC_GUI_DLL
 //#	define FOXDLL_EXPORTS
 //#endif

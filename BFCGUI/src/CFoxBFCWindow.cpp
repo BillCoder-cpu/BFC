@@ -1214,10 +1214,10 @@ bool CFoxBFCWindow :: FxSetFont(character *p_fontSpec)
 		FXString fontspec(pad);
 		if(!fontspec.empty())
 		{
- 			FXFontDesc fontdesc;
-			((CFoxTextWindow*)this)->getFont()->getFontDesc(fontdesc);
-
-//			FXFontDesc fontdesc = ((CFoxTextWindow*)this)->getFont()->getFontDesc();
+			// For fox version less than 1.7 use these 2 lines instead of the 1 line below
+ 			// FXFontDesc fontdesc;
+			// ((CFoxTextWindow*)this)->getFont()->getFontDesc(fontdesc);
+			FXFontDesc fontdesc = ((CFoxTextWindow*)this)->getFont()->getFontDesc();
 
 			FXFont *p_Font=new FXFont(m_p_FoxApplication,fontspec);
 //    font=new FXFont(getApp(),fontdesc);

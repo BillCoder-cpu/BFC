@@ -381,9 +381,10 @@ CBfc::Position2dU	UILayerWindow::GetXYOfPos(const CBfc::Position2dU &pos) const
 
 void *UILayerWindow::CreateVisual (AppLayerPtr app)
 {
-	return (void*)new FX::FXGLVisual ((FXApp*)app, FXVisualOptions::VISUAL_DOUBLEBUFFER);
+	// prior to fox toolkit v1.7 use this line instead.
+	// return (void*)new FX::FXGLVisual ((FXApp*)app, FXVisualOptions::VISUAL_DOUBLEBUFFER);
+	return (void*)new FX::FXGLVisual ((FXApp*)app);
 }
-
 
 
 Menu::Menu (Window *winp)
