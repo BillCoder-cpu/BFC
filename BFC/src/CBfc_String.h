@@ -144,9 +144,10 @@ public:
 	char *		BorrowAsciiBuffer();
 			
 	int		CompareNoCase(const CBCString &csCompare ) const;
-	int		Compare(const characterPtr lpsz_compare, const unsigned int u_MaxLen = 0) const;
-	int		Compare(const CBCString &csCompare, bool b_CaseSensitive = true) const;
 	int		CompareNoCase(const characterPtr lpsz_compare, const unsigned int u_MaxLen = 0) const;
+	int		Compare(const CBCString &csCompare, bool b_CaseSensitive = true) const;
+	int		Compare(const characterPtr lpsz_compare, const unsigned int u_MaxLen = 0) const;
+	int		CompareAsString(const characterPtr lpsz_compare) const;
 	
 	bool LeftEquals(const STRING &match) const;
 

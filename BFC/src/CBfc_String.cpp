@@ -454,7 +454,6 @@ int	STRING::Compare(const STRING &csCompare, bool b_CaseSensitive) const
 	return -1;
 }
 
-
 // returns 0 on first characters identical
 int STRING::Compare(const characterPtr lpsz_compare, const unsigned int u_MaxLen) const
 {
@@ -500,7 +499,6 @@ int STRING::Compare(const characterPtr lpsz_compare, const unsigned int u_MaxLen
 	}
 	return i_rVal;
 }
-
 
 int STRING::CompareNoCase(characterPtr lpsz_compare, const unsigned int u_MaxLen) const
 {
@@ -550,6 +548,12 @@ int STRING::CompareNoCase(characterPtr lpsz_compare, const unsigned int u_MaxLen
 		m_buffer.DeReferenceBytes (ptr);
 	}
 	return i_rVal;
+}
+
+int	STRING::CompareAsString(const characterPtr lpsz_compare) const
+{
+	int length = wcslen(lpsz_compare);
+	return (GetLengthChars() == length) ? Compare(lpsz_compare) : -1;
 }
 
 char *STRING::BorrowAsciiBuffer()
