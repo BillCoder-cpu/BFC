@@ -84,6 +84,13 @@ bool Stream::Detach ()
 	return true;
 }
 
+unsigned long	Stream::FileLength()
+{
+	if (m_b_attached)
+		return m_p_source->FileLength();
+	return 0;
+}
+
 /**
 	* 
 	* @return 

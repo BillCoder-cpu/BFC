@@ -59,6 +59,7 @@ public:
 		return m_b_attached;
 	}
 	bool GetFilename(STRING &csFilename) const;
+	unsigned long	FileLength();
 
 	CBfc::FileHandle *GetFileHandle();
 

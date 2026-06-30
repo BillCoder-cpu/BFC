@@ -84,7 +84,7 @@ void ApplicationBase::Initialize (const int argc, const char* argv[], const STRI
 	m_BaseFolder = runfile.GetPath();
 	if (csResourcePath.IsEmpty())
 		m_ResourceFolder = m_BaseFolder;
-	else
+	else 
 	{
 		m_ResourceFolder = csResourcePath;
 		if (csResourcePath.GetAt(0) != '/')
